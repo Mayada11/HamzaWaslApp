@@ -1,0 +1,33 @@
+.row>* {
+    flex-shrink: 0;
+    width: 50% !important;
+    max-width: 100%;
+}
+.row3>* {
+    flex-shrink: 0;
+    width: 33% !important;
+    max-width: 100%;
+}
+.mat-radio-button {
+    border: 1px solid rgb(190, 190, 190);
+    width: 48%;
+    display: inline-block;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: 0;
+    height: 65%;
+    margin-top: 1.5%;
+    border-radius: 11px;
+    background-color: white;
+    text-align: center;
+    /* padding: 4%; */
+    padding-top: 6%;
+    margin-right: 2%;
+    position: relative;
+    color: #0097FF;
+    font-weight: bold;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 11px;
+  }

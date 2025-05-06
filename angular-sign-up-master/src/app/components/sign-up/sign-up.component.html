@@ -1,0 +1,172 @@
+<div dir="rtl" class="form-container mat-elevation-z5">
+  <img class="signOptionImg" src="../../../assets/images/signUp.png" alt="">
+  <h1 *ngIf="TypeId==2" style="color: black;">تسجيل حساب جديد طالب أو معلم</h1>
+  <h1 *ngIf="TypeId==1" style="color: black;">تسجيل حساب جديد مرشد تعليمي أو مساعد معلم</h1>
+  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+    <div class="row" dir="rtl">
+     
+    <mat-form-field appearance="outline" dir="rtl" style="text-align: start;">
+      <mat-label>الاسم</mat-label>
+      <input matInput placeholder="الاسم" formControlName="name" />
+      <mat-error *ngIf="name?.errors?.['required']">
+        من فضلك ادخل الاسم
+      </mat-error>
+    </mat-form-field>
+    <div *ngIf="TypeId==1">
+      <mat-radio-group matRadio formControlName="userCat">
+        <mat-radio-button value="1">مرشد تعليمي</mat-radio-button>
+        <mat-radio-button value="2">مساعد معلم</mat-radio-button>
+        <mat-error *ngIf="userCat?.errors?.['required']">
+          يجب ادخال الفئة
+        </mat-error>
+      </mat-radio-group>
+     
+    </div>
+    <div *ngIf="TypeId==2">
+      <mat-radio-group formControlName="userCat">
+        <mat-radio-button value="3">معلم</mat-radio-button>
+        <mat-radio-button value="4">طالب</mat-radio-button>
+        <mat-error *ngIf="userCat?.errors?.['required']">يجب ادخال الفئة
+        </mat-error>
+      </mat-radio-group>
+      
+    </div></div>
+    <div class="row">
+    <mat-form-field appearance="outline" style="text-align: start;">
+      <input type="number" matInput placeholder="الرقم القومي" formControlName="NationalId" />
+      <mat-error *ngIf="NationalId?.errors?.['required']">
+        يجب ادخال الرقم القومي
+      </mat-error>
+      <!-- <mat-error *ngIf="NationalId?.errors?.['min']">
+           الرقم القومي لا يتعدي 14 رقم
+      </mat-error> -->
+      <!-- <mat-error *ngIf="NationalId?.errors?.['maxLength']">
+        الرقم القومي لا يقل عن 14 رقم
+      </mat-error> -->
+    </mat-form-field>
+    <div>
+      <mat-radio-group formControlName="type">
+        <mat-radio-button value="male">ذكر</mat-radio-button>
+        <mat-radio-button value="female">أنثي</mat-radio-button>
+        <mat-error *ngIf="userCat?.errors?.['required']">يجب ادخال النوع
+        </mat-error>
+      </mat-radio-group>
+      
+    </div></div>
+    <mat-form-field appearance="outline" style="text-align: start;">
+      <input matInput placeholder="البريد الالكتروني" formControlName="email" />
+      <mat-error *ngIf="email?.errors?.['required']">
+        من فضلك ادخل البريد الكتروني 
+      </mat-error>
+      <mat-error *ngIf="email?.errors?.['email']">
+        من فضلك ادخل بريد الكتروني صحيح
+      </mat-error>
+    </mat-form-field>
+    <div class="row">
+    <mat-form-field appearance="outline" style="text-align: start;">
+      <input
+        matInput
+        type="password"
+        placeholder="كلمة السر"
+        formControlName="password"
+      />
+      <mat-error *ngIf="password?.errors?.['required']">
+        من فضلك ادخل كلمة السر 
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="text-align: start;">
+      <input
+        matInput
+        type="password"
+        placeholder="تأكيد كلمة السر"
+        formControlName="confirmPassword"
+      />
+      <mat-error *ngIf="confirmPassword?.errors?.['required']">
+        من فضلك ادخل كلمة السر 
+      </mat-error>
+    </mat-form-field>
+    <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+       كلمة السر غير مطابقة
+    </mat-error>
+  </div>
+  <div class="row">
+    <mat-form-field appearance="outline" style="text-align: start;">
+      <input matInput placeholder="المحافظة" formControlName="city" />
+      <mat-error *ngIf="city?.errors?.['required']">
+        من فضلك ادخل المحافظة
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="TypeId==1" style="text-align: start;">
+      <input matInput placeholder="الكلية" formControlName="collage" />
+      <mat-error *ngIf="collage?.errors?.['required']">
+        من فضلك ادخل الكلية
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="TypeId==2" style="text-align: start;">
+      <input matInput placeholder="المدرسة" formControlName="school" />
+      <mat-error *ngIf="collage?.errors?.['required']">
+        من فضلك ادخل المرسة
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row" *ngIf="TypeId==1">
+    <mat-form-field appearance="outline" *ngIf="TypeId==1" style="text-align: start;">
+      <input matInput placeholder="التخصص" formControlName="specialization" />
+      <mat-error *ngIf="specialization?.errors?.['required']">
+        من فضلك ادخل التخصص
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="TypeId==1" style="text-align: start;">
+      <input matInput placeholder="التقدير بالنسبة المئوية / (GPA)" formControlName="gba" />
+      <mat-error *ngIf="gba?.errors?.['required']">
+        من فضلك ادخل التقدير بالنسبة المئوية / (GPA)
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row" *ngIf="TypeId==1">
+    <mat-form-field appearance="outline" *ngIf="TypeId==1" style="text-align: start;">
+      <input matInput placeholder="الدرجة الوظيفية" formControlName="jobLevel" />
+      <mat-error *ngIf="jobLevel?.errors?.['required']">
+        من فضلك ادخل الدرجة الوظيفية
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="TypeId==1" style="text-align: start;">
+      <input matInput placeholder="سنة التخرج" formControlName="gradYear" />
+      <mat-error *ngIf="gradYear?.errors?.['required']">
+        من فضلك ادخل سنة التخرج 
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <mat-form-field appearance="outline" *ngIf="TypeId==1" style="text-align: start;">
+    <input matInput placeholder="المرحلة" formControlName="stage" />
+    <mat-error *ngIf="stage?.errors?.['required']">
+      من فضلك ادخل المرحلة  
+    </mat-error>
+  </mat-form-field>
+  <div class="row row3" *ngIf="TypeId==2">
+    <mat-form-field appearance="outline" *ngIf="TypeId==2" style="text-align: start;">
+      <input matInput placeholder="سنة التخرج" formControlName="className" />
+      <mat-error *ngIf="className?.errors?.['required']">
+        من فضلك ادخل سنة التخرج 
+      </mat-error>
+    </mat-form-field>
+      <mat-form-field appearance="outline" *ngIf="TypeId==2" style="text-align: start;">
+        <input matInput placeholder="المرحلة" formControlName="stage" />
+        <mat-error *ngIf="stage?.errors?.['required']">
+          من فضلك ادخل المرحلة  
+        </mat-error>
+      </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="TypeId==2" style="text-align: start;">
+      <input matInput placeholder="المادة" formControlName="article" />
+      <mat-error *ngIf="article?.errors?.['required']">
+        من فضلك ادخل المادة 
+      </mat-error>
+    </mat-form-field>
+   
+    
+  </div>
+    <div class="center margin-top">
+      <button type="submit" mat-raised-button class="lognBtn">تسجيل حساب جديد</button>
+    </div>
+  </form>
+</div>
