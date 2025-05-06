@@ -1,5 +1,5 @@
 <div dir="rtl" class="form-container mat-elevation-z5">
-  <img class="signOptionImg" [src]="'/assets/images/signUp.png'" alt="">
+  <img class="signOptionImg" [src]="'assets/images/signUp.png'" alt="">
   <h1 *ngIf="TypeId==2" style="color: black;">تسجيل حساب جديد طالب أو معلم</h1>
   <h1 *ngIf="TypeId==1" style="color: black;">تسجيل حساب جديد مرشد تعليمي أو مساعد معلم</h1>
   <form [formGroup]="signUpForm" (ngSubmit)="submit()">
