@@ -49,7 +49,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    ...canActivate(redirectUnauthorizedToLogin),
+    // ...canActivate(redirectUnauthorizedToLogin),
   },
 ];
 

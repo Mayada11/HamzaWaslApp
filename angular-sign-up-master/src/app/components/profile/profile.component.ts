@@ -5,6 +5,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { switchMap, tap } from 'rxjs';
 import { ProfileUser } from 'src/app/models/user';
 import { ImageUploadService } from 'src/app/services/image-upload.service';
+import { UserCatService } from 'src/app/services/user-cat.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @UntilDestroy()
@@ -15,7 +16,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ProfileComponent implements OnInit {
   user$ = this.usersService.currentUserProfile$;
-
+  userCat?:string
   profileForm = this.fb.group({
     uid: [''],
     displayName: [''],
@@ -29,7 +30,8 @@ export class ProfileComponent implements OnInit {
     private imageUploadService: ImageUploadService,
     private toast: HotToastService,
     private usersService: UsersService,
-    private fb: NonNullableFormBuilder
+    private fb: NonNullableFormBuilder,
+    private usCatService:UserCatService
   ) {}
 
   ngOnInit(): void {
@@ -37,26 +39,43 @@ export class ProfileComponent implements OnInit {
       .pipe(untilDestroyed(this), tap(console.log))
       .subscribe((user) => {
         this.profileForm.patchValue({ ...user });
+        this.userCat = this.usCatService.getUserCat(user?.userCategory as number);
       });
   }
 
   uploadFile(event: any, { uid }: ProfileUser) {
+    const form = new FormData();
+    form.append("file",event.target.files[0]);
+    form.append("api_key", '692369785745284');
+    form.append("api_secret", 'gOfP7XJmRMWk31Jn63CnuWc0X1g');
+    form.append("upload_preset","hellohello");
+    form.append("cloud_name","dcadewwme");
+
     this.imageUploadService
-      .uploadImage(event.target.files[0], `images/profile/${uid}`)
+      .uploadImage(form)
       .pipe(
         this.toast.observe({
           loading: 'Uploading profile image...',
           success: 'Image uploaded successfully',
           error: 'There was an error in uploading the image',
         }),
-        switchMap((photoURL) =>
-          this.usersService.updateUser({
-            uid,
-            photoURL,
-          })
-        )
+        // switchMap((photo) =>{
+        //  const photoURL = photo.data.url;
+        //   this.usersService.updateUser({
+        //     uid,
+        //     photoURL,
+        //   })}
+        //)
       )
-      .subscribe();
+      .subscribe((data1)=>{
+        console.log(data1);
+        var photoURL = data1.url;
+        this.usersService.updateUser({
+              uid,
+              photoURL,
+             })
+
+      });
   }
 
   saveProfile() {

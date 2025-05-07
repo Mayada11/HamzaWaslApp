@@ -8,6 +8,7 @@
   border-radius: 100%;
   object-fit: cover;
   object-position: center;
+  border: 5px solid #FFBC01;
 }
 
 .profile-image > button {
@@ -15,7 +16,13 @@
   bottom: 10px;
   right: 0;
 }
-
+th{
+  border: 1px solid black;
+    background-color: #ffc107;
+    color: white;
+    text-align: center;
+    font-family: Almarai;
+}
 .form-container {
   max-width: 400px;
 }
@@ -24,3 +31,33 @@
   display: flex;
   gap: 16px;
 }
+.dirLTR{
+  direction: ltr;
+}
+.dirRTL{
+  direction: rtl;
+}
+.inputStyleSpan{
+  border-radius: 0px 10px 10px 0px;
+  /* border: black; */
+  border: 1px solid black;
+  font-weight: bold;
+}
+.inputStyle{
+  border-radius: 10px 0px 0 10px;
+  border: 1px solid black;
+}
+.marginBottom{
+margin-bottom: 5px !important;;
+}
+table, th, td {
+  border:2px solid black;
+}
+.mat-mini-fab.mat-accent {
+  background-color: #FFBC01;
+}
+table{
+  position: relative;
+  border: 1px solid black;
+}
+

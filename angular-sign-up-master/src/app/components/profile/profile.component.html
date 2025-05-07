@@ -1,4 +1,4 @@
-<div
+<!-- <div
   class="form-container mat-elevation-z5 text-center"
   *ngIf="user$ | async as user"
 >
@@ -67,4 +67,76 @@
       Save
     </button>
   </form>
+</div> -->
+
+
+
+
+
+<div *ngIf="user$ | async as user">
+  <img *ngIf="user?.userCategory=='3'" class="signOptionImg" src="assets/images/dashboard_Background.png" alt="">
+  <img *ngIf="user?.userCategory=='1' || user?.userCategory=='2' || user?.userCategory=='4'" class="signOptionImg" src="assets/images/signOption.png" alt="">
+
+<div style="display: flex
+  ;
+      flex-direction: row;
+      justify-content: space-around;">
+      <div style="    width: 50%;
+  padding: 15px;">
+<h1>{{user?.displayName}}</h1>
+<h5>{{userCat}}</h5>
+<h6>البيانات :</h6>
+
+<div class="input-group mb-3 dirLTR marginBottom">
+  <input type="text" class="form-control dirRTL inputStyle" value="{{user?.phone}}" placeholder="رقم الهاتف" aria-label="Username" aria-describedby="basic-addon1" readonly>
+  <span class="input-group-text inputStyleSpan" id="basic-addon1">رقم الهاتف</span>
+</div>
+<div class="input-group mb-3 dirLTR marginBottom">
+  <input type="text" class="form-control dirRTL inputStyle" value="{{user?.email}}" placeholder="البريد الالكتروني" aria-label="Username" aria-describedby="basic-addon1" readonly>
+  <span class="input-group-text inputStyleSpan" >البريد الالكتروني</span>
+</div>
+<div *ngIf="user?.userCategory=='1' || user?.userCategory=='2' || user?.userCategory=='3'" class="input-group mb-3 dirLTR marginBottom">
+  <input type="text" class="form-control dirRTL inputStyle" value="{{user?.className}}" placeholder="الصف" aria-label="Username" aria-describedby="basic-addon1" readonly>
+  <span class="input-group-text inputStyleSpan" >الصف</span>
+</div>
+<div *ngIf="user?.userCategory=='4'" class="input-group mb-3 dirLTR marginBottom">
+  <input type="text" class="form-control dirRTL inputStyle" value="{{user?.jobLevel}}" placeholder="المرحلة" aria-label="Username" aria-describedby="basic-addon1" readonly>
+  <span class="input-group-text inputStyleSpan" >المرحلة</span>
+</div>
+<div class="input-group mb-3 dirLTR marginBottom">
+  <input type="text" class="form-control dirRTL inputStyle" value="{{user?.paymentType}}" placeholder="طريقة الدفع" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <span class="input-group-text inputStyleSpan" id="basic-addon2">طريقة الدفع</span>
+</div>
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">اسم الباقة</th>
+      <th scope="col">تاريخ البداية</th>
+      <th scope="col">تاريخ الانتهاء</th>
+      <th scope="col">نوع الباقة</th>
+    </tr>
+  </thead>
+</table>
+
+
+
+</div>
+<div style="width: 40%;
+  text-align: center;">
+  <div class="profile-image">
+    <img
+      width="200"
+      height="200"
+      class="margin-top mat-elevation-z1"
+      [src]="user.photoURL ?? '/assets/images/image-placeholder.png'"
+    />
+    <button mat-mini-fab (click)="inputField.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+  <input #inputField hidden type="file" (change)="uploadFile($event,user)" />
+</div>
+</div>
 </div>
