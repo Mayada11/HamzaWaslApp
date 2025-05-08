@@ -172,6 +172,10 @@ export class SignUpComponent implements OnInit {
        if (!this.signUpForm.valid ||!userCat|| !name || !password || !email || !NationalId || !city || !school  || !type  || !stage || !article || !className) {
           return;
         }
+        
+      const pack = this.packService.getFreePackage(userCat);
+      const packageID = pack.id;
+      var packageStart = new Date().toJSON().slice(0,10).replace(/-/g,'/');;
         this.authService
       .signUp(email, password)
       .pipe(
