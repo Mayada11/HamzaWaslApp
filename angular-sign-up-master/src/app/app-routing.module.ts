@@ -12,6 +12,7 @@ import {
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignOptionComponent } from './components/sign-option/sign-option.component';
 import { SignSuccessComponent } from './components/sign-success/sign-success.component';
+import { PackagesComponent } from './components/packages/packages.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -49,7 +50,12 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    // ...canActivate(redirectUnauthorizedToLogin),
+     ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path: 'package',
+    component: PackagesComponent,
+     ...canActivate(redirectUnauthorizedToLogin),
   },
 ];
 

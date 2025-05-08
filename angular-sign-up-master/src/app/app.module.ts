@@ -25,6 +25,8 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { SignOptionComponent } from './components/sign-option/sign-option.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { SignSuccessComponent } from './components/sign-success/sign-success.component';
+import { PackagesComponent } from './components/packages/packages.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,7 @@ import { SignSuccessComponent } from './components/sign-success/sign-success.com
     ProfileComponent,
     SignOptionComponent,
     SignSuccessComponent,
+    PackagesComponent,
   ],
   imports: [
     BrowserModule,

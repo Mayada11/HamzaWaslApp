@@ -1,4 +1,5 @@
-<mat-toolbar dir="rtl" color="primary">
+<mat-toolbar style="    z-index: 1;
+    position: relative;" dir="rtl" color="primary">
  همزة وصل
   <ng-container *ngIf="user$ | async as user; else loginButton">
     <button mat-button [matMenuTriggerFor]="userMenu">
@@ -28,6 +29,10 @@
   <button dir="rtl" mat-menu-item routerLink="/profile">
     <mat-icon>account_circle</mat-icon>
     وحدة التحكم
+  </button>
+  <button dir="rtl" mat-menu-item routerLink="/package">
+    <mat-icon>account_circle</mat-icon>
+    الباقات
   </button>
   <button mat-menu-item (click)="logout()">
     <mat-icon>logout</mat-icon>

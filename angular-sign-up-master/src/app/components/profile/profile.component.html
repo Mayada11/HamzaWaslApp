@@ -82,7 +82,7 @@
       flex-direction: row;
       justify-content: space-around;">
       <div style="    width: 50%;
-  padding: 15px;">
+  padding: 15px;margin-top: 15px;">
 <h1>{{user?.displayName}}</h1>
 <h5>{{userCat}}</h5>
 <h6>البيانات :</h6>
@@ -137,6 +137,44 @@
     </button>
   </div>
   <input #inputField hidden type="file" (change)="uploadFile($event,user)" />
+  <div class="form-container mat-elevation-z5" style="margin-top: 30px;max-width: 100% !important;">
+  <table id="motion-effect" class="animations-example charts-css column multiple datasets-spacing-10" style="border:none;height: auto;">
+
+    <caption> المؤشرات </caption>
+  
+    <tbody>
+      <tr>
+        <td> 50% </td>
+      </tr>
+      <tr>
+        <td> 0% </td>
+      </tr>
+      <tr>
+        <td> 0% </td>
+      </tr>
+      <tr>
+        <td> 0% </td>
+      </tr>
+      <tr>
+        <td> 0% </td>
+      </tr>
+      <tr>
+        <td> 0% </td>
+      </tr>
+      <tr>
+        <td> 0% </td>
+      </tr>
+       <tr>
+        <td> 0% </td>
+      </tr>
+    </tbody>
+  
+  </table>
+  
 </div>
 </div>
+
 </div>
+</div>
+
+

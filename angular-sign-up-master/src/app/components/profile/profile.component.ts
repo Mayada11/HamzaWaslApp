@@ -38,7 +38,6 @@ export class ProfileComponent implements OnInit {
     this.usersService.currentUserProfile$
       .pipe(untilDestroyed(this), tap(console.log))
       .subscribe((user) => {
-        this.profileForm.patchValue({ ...user });
         this.userCat = this.usCatService.getUserCat(user?.userCategory as number);
       });
   }

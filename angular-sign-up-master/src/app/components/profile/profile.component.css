@@ -60,4 +60,24 @@ table{
   position: relative;
   border: 1px solid black;
 }
-
+#motion-effect  tr {
+  transition-duration: 0.3s;
+}
+#motion-effect tr:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+#motion-effect  tr:hover th {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+.animations-example  td {
+  animation: jumping-bars 3s linear infinite;
+}
+.animations-example tr:nth-of-type(even) td {
+  animation-delay: 300ms;
+}
+@keyframes jumping-bars {
+  0% { transform: translateY(   0px ); }
+  2% { transform: translateY( -10px ); }
+  4% { transform: translateY(   0px ); }
+}

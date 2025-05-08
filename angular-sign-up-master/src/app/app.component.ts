@@ -10,7 +10,7 @@ import { UsersService } from './services/users.service';
 })
 export class AppComponent {
   user$ = this.usersService.currentUserProfile$;
-
+  userCat:any;
   constructor(
     private authService: AuthService,
     public usersService: UsersService,

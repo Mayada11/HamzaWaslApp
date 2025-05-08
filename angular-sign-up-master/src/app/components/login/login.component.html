@@ -3,7 +3,7 @@
   [src]="'assets/images/signOption.png'" alt="">
   <form [formGroup]="loginForm" (ngSubmit)="submit()">
     <mat-form-field>
-      <input matInput formControlName="email" /> <mat-placeholder class="placeholder">البريد الالكتروني</mat-placeholder>
+      <input matInput formControlName="email" placeholder="البريد الالكتروني"/>
       <mat-error *ngIf="email?.errors?.['required']">
         من فضلك ادخل البريد الكتروني 
       </mat-error>

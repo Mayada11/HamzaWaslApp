@@ -21,4 +21,8 @@ export interface ProfileUser {
   address?: string;
   photoURL?: string;
   paymentType?:string;
+  packageID?:number;
+  packageStart?:string;
+  packageEndDate?:string;
+
 }

@@ -1,0 +1,19 @@
+<div style="display: flex;">
+    <img class="signOptionImg" 
+        [src]="'assets/images/signOption.png'" alt="">
+    <div *ngFor="let package of packages" class="form-container mat-elevation-z5 dirrtl package">
+        <h1>{{package.name}}</h1>
+        <ul *ngFor="let des of package.description">
+            <li>{{des}}</li>
+        </ul>
+        <h1>{{package.price}}</h1>
+        <div class="center margin-top">
+            <ng-container *ngIf="package.id != userCurrentPack;else currentPack">            <button  mat-raised-button class="lognBtn">أشترك الأن</button>
+            </ng-container>
+            <ng-template #currentPack>
+                <button  mat-raised-button class="lognBtn">مشترك بالفعل</button>
+            </ng-template>
+          </div>
+    </div>
+
+</div>

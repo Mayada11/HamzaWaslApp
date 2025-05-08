@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
+import { PackageService } from 'src/app/services/package.service';
 import { UsersService } from 'src/app/services/users.service';
 
 export function passwordsMatchValidator(): ValidatorFn {
@@ -63,7 +64,8 @@ export class SignUpComponent implements OnInit {
     private toast: HotToastService,
     private usersService: UsersService,
     private fb: NonNullableFormBuilder,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private packService:PackageService,
   ) {}
 
   ngOnInit(): void {
@@ -146,12 +148,17 @@ export class SignUpComponent implements OnInit {
       if (!this.signUpForm.valid ||!userCat|| !name || !password || !email || !NationalId || !city|| !collage  || !specialization || !gba || !type || !jobLevel || !gradYear || !stage) {
         return;
       }
+      const pack = this.packService.getFreePackage(userCat);
+          const packageID = pack.id;
+          var packageStart = new Date().toJSON().slice(0,10).replace(/-/g,'/');;
+          
       this.authService
       .signUp(email, password)
       .pipe(
         switchMap(({ user: { uid } }) =>
-          this.usersService.addUser({ uid, email, displayName: name,userCategory:userCat ,NationalId:NationalId,city:city,collage:collage,specialization:specialization,gba:gba,type:type,jobLevel:jobLevel,gradYear:gradYear,stage:stage})
-        ),
+          
+          this.usersService.addUser({ uid, email, displayName: name,userCategory:userCat ,NationalId:NationalId,city:city,collage:collage,specialization:specialization,gba:gba,type:type,jobLevel:jobLevel,gradYear:gradYear,stage:stage,packageID:packageID,packageStart:packageStart})
+      ),
         this.toast.observe({
           success: 'مبروك لق قمت بالتسجيل في المنصة',
           loading: 'تسجيل الدخول',
