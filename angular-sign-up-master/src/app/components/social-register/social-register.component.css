@@ -1,0 +1,10 @@
+.row>* {
+    flex-shrink: 0;
+    width: 50% !important;
+    max-width: 100%;
+}
+.row3>* {
+    flex-shrink: 0;
+    width: 33% !important;
+    max-width: 100%;
+}

@@ -1,0 +1,39 @@
+<div dir="rtl" class="form-container mat-elevation-z5">
+      <img class="signOptionImg" src="assets/images/dashboard_Background.png" alt="">
+      <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+         <mat-form-field appearance="outline" dir="rtl" style="text-align: start;">
+      <mat-label>الاسم</mat-label>
+      <input matInput placeholder="الاسم" formControlName="name" />
+      <mat-error *ngIf="name?.errors?.['required']">
+        من فضلك ادخل الاسم
+      </mat-error>
+    </mat-form-field>
+     <div class="row row3" >
+    <mat-form-field appearance="outline" style="text-align: start;">
+      <input matInput placeholder="الصف" formControlName="className" />
+      <mat-error *ngIf="className?.errors?.['required']">
+        من فضلك ادخل الصف 
+      </mat-error>
+    </mat-form-field>
+      <mat-form-field appearance="outline"  style="text-align: start;">
+        <input matInput placeholder="المرحلة" formControlName="stage" />
+        <mat-error *ngIf="stage?.errors?.['required']">
+          من فضلك ادخل المرحلة  
+        </mat-error>
+      </mat-form-field>
+    <mat-form-field appearance="outline" style="text-align: start;">
+      <input matInput placeholder="المادة" formControlName="article" />
+      <mat-error *ngIf="article?.errors?.['required']">
+        من فضلك ادخل المادة 
+      </mat-error>
+    </mat-form-field>
+   
+    
+  </div>
+       <div class="center margin-top">
+      <button type="submit" mat-raised-button class="lognBtn">انشاء  </button>
+    </div>
+      </form>
+
+
+</div>

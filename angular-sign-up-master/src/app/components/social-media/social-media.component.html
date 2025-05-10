@@ -1,0 +1,37 @@
+<div *ngIf="soc">
+    <h1>{{soc.creator}}</h1>
+    <div class="BCImage">
+        <div style="width: 40%;
+  text-align: center;">
+  <div class="profile-image">
+    <img
+      width="200"
+      height="200"
+      class="margin-top mat-elevation-z1"
+      [src]="soc.socialBackImg ?? '/assets/images/image-placeholder.png'"
+    />
+    <button mat-mini-fab (click)="inputField.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+      <input #inputField hidden type="file" (change)="uploadFile($event,false)" />
+
+  </div>
+    </div>
+     <div class="profileImage">
+        <div style="width: 40%;
+  text-align: center;">
+  <div class="profile-image">
+    <img
+      width="200"
+      height="200"
+      class="margin-top mat-elevation-z1"
+      [src]="soc.socialProfileImg ?? '/assets/images/image-placeholder.png'"
+    />
+    <button mat-mini-fab (click)="inputField2.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+      <input #inputField2 hidden type="file" (change)="uploadFile($event,true)" />
+
+  </div>
+    </div>
+</div>

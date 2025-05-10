@@ -13,6 +13,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SignOptionComponent } from './components/sign-option/sign-option.component';
 import { SignSuccessComponent } from './components/sign-success/sign-success.component';
 import { PackagesComponent } from './components/packages/packages.component';
+import { SocialRegisterComponent } from './components/social-register/social-register.component';
+import { SocialMediaComponent } from './components/social-media/social-media.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -55,6 +57,16 @@ const routes: Routes = [
   {
     path: 'package',
     component: PackagesComponent,
+     ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path: 'socialRegister',
+    component: SocialRegisterComponent,
+     ...canActivate(redirectUnauthorizedToLogin),
+  },
+   {
+    path: 'socialMedia',
+    component: SocialMediaComponent,
      ...canActivate(redirectUnauthorizedToLogin),
   },
 ];

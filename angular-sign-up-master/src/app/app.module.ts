@@ -26,6 +26,8 @@ import { SignOptionComponent } from './components/sign-option/sign-option.compon
 import {MatRadioModule} from '@angular/material/radio';
 import { SignSuccessComponent } from './components/sign-success/sign-success.component';
 import { PackagesComponent } from './components/packages/packages.component';
+import { SocialMediaComponent } from './components/social-media/social-media.component';
+import { SocialRegisterComponent } from './components/social-register/social-register.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { PackagesComponent } from './components/packages/packages.component';
     SignOptionComponent,
     SignSuccessComponent,
     PackagesComponent,
+    SocialMediaComponent,
+    SocialRegisterComponent,
   ],
   imports: [
     BrowserModule,
