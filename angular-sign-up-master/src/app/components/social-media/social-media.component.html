@@ -1,4 +1,4 @@
-<div *ngIf="soc">
+<!-- <div *ngIf="soc">
     <h1>{{soc.creator}}</h1>
     <div class="BCImage">
         <div style="width: 40%;
@@ -33,5 +33,28 @@
       <input #inputField2 hidden type="file" (change)="uploadFile($event,true)" />
 
   </div>
+    </div>
+</div> -->
+
+<div class="main" *ngIf="soc">
+    <div class="cover">
+  <img 
+      [src]="soc.socialBackImg ?? '/assets/images/image-placeholder.png'" 
+    />
+    <div (click)="inputField.click()" class="overlay">
+    <div  class="text">ارفق صورة غلاف</div>
+  </div>
+    <!-- <button mat-mini-fab (click)="inputField.click()">
+      <mat-icon>edit</mat-icon>
+    </button> -->
+      <input #inputField hidden type="file" (change)="uploadFile($event,false)" />
+    </div>
+    <div class="profile">
+ <img style="width: 100%;height: 100%;"
+      [src]="soc.socialProfileImg ?? '/assets/images/image-placeholder.png'"
+    />
+     <div (click)="inputField2.click()" class="overlay">
+    <div  class="text">ارفق صورة شخصية</div>
+      <input #inputField2 hidden type="file" (change)="uploadFile($event,true)" />
     </div>
 </div>

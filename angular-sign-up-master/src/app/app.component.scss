@@ -3,10 +3,75 @@ mat-toolbar {
 }
 
 .content {
-  padding: 32px;
+  margin-top: 100px;
 }
 
 .profile-image-toolbar {
   border-radius: 100%;
   margin-right: 8px;
+}
+.RegisterNowBtn{
+    background-color: #FFBC01 ;
+    border: #FFBC01;
+    width: 113px;
+    height: 38px;
+}
+.HeaderContainer{
+    height: 100px;
+    background-color: #E4E2E2 !important;
+    opacity: 100%;
+    padding: 0 92px; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 111;
+
+}
+.logoImg{
+    width: 90px;
+    height: 79px;
+}
+.logoContainer{
+    height: 158px;
+    position: absolute;
+    top: 0;
+    background-color: aliceblue;
+    margin: 0;
+    border-radius: 0 0 50px 50px;
+    z-index: 1;
+}
+.logoContainer{
+    height: 158px;
+    position: absolute;
+    top: 0;
+    background-color: aliceblue;
+    margin: 0;
+    border-radius: 0 0 50px 50px;
+    width: 121px;
+    padding-top: 30px;
+}
+.notiIcon{
+    font-size: 32px;
+    color: #FFBC01;
+    height: 32px;
+    width: 32px;
+    
+}
+.ulNavItems{
+    padding-right: 100px;
+    width: 70%;
+    font-size: 1.3em;
+}
+.nav-link{
+    color: #666666 !important;
+
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #FFBC01 !important;
+    border-bottom: 1px solid #ffc107;
+}
+.navbar-toggler{
+    position: absolute;
+    left: 10px;
 }

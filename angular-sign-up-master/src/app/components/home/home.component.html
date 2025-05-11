@@ -1,3 +1,60 @@
-<ng-container *ngIf="user$ | async as user">
-    <h1>Welcome to the home page, {{user.displayName}}!</h1>
-</ng-container>
+
+<div class="HomeContainer">
+    <img src="assets/images/HomeImg.png"  alt="Home Img" class="HomeImg">
+    <div class="card-container">
+        <div class="card" style="    border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border: none;">
+            <div class="card-body card-body-with-img">
+              <h1 class="card-title">جرب محرك البحث الاكاديمي</h1>
+              <h5 class="card-subtitle mb-2 text-body-secondary cardTitle">أفضل رفيق لدراستك</h5>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control searchInput" placeholder="ابحث..... " aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <button class="btn btn-primary searchButton" type="button" id="button-addon1">    <mat-icon>search</mat-icon>
+</button>
+              </div>              <h6 class="card-subtitle mb-2 text-body-secondary cardTitle">البحث المتقدم</h6>
+            </div>
+          </div>
+        <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="assets/images/firstImg4.png" class="img-fluid rounded-start" style="height: 249px;" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body card-body-with-img">
+                  <h1 class="card-title">مرحباً بكم  في همزة وصل</h1>
+                  <p class="card-text" style="color: #666666;font-size: 15px;">نحن سعداء بانضمامك إلينا في رحلتك التعليمية 
+                    همزة وصل هي منصتك للتعلّم، التواصل، والنمو 
+                    هنا بنوصلك بالمعرفة، بالفرص، وبأشخاص بيفكروا زيك
+                    و سواء كنت طالب، معلم، أو باحث عن تطوير مهاراتك، هتلاقي كل ما تحتاجه في مكان واحد، بتجربة سهلة، ممتعة، وفعالة.
+                    ابدأ رحلتك الآن، وخلّي التعليم ليه معني .</p>
+                  <!-- <p class="card-text"><small class="text-body-secondary" style="border-bottom: 1px solid #0000;"></small></p> -->
+                   <div style="text-align: center ;height: 3px; padding-right: 30%;"><div style="border-bottom: 1px solid #666666;width: 60%;"></div></div>
+                </div>
+              </div>
+            </div>
+        </div>
+ 
+    </div>
+     <div style="display: flex;text-align: center;">   
+   <div class="card cardin text-bg-dark">
+  <img src="assets/images/shroot.png" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <h1 class="card-title">شروط الاستخدام</h1>
+  </div>
+</div>
+ <div class="card cardin text-bg-dark">
+  <img src="assets/images/khosos.png" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <h1 class="card-title">سياسة الخصوصية</h1>
+  </div>
+</div>
+ <div class="card cardin text-bg-dark">
+  <img src="assets/images/dam.png" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <h1 class="card-title">الدعم الفني والامان</h1>
+  </div>
+</div>
+</div>
+</div>
+

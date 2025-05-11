@@ -1,7 +1,9 @@
-<div dir="rtl" class="form-container mat-elevation-z5">
+<div style="text-align: center;margin-top: 150px;color: black;">
+  <h1 *ngIf="TypeId==2" style="font-size: 3em;font-family: Almarai, sans-serif;font-weight: 700;">تسجيل حساب جديد طالب أو معلم</h1>
+  <h1 *ngIf="TypeId==1" style="font-size: 3em;font-family: Almarai, sans-serif;font-weight: 700;">تسجيل حساب جديد مرشد تعليمي أو مساعد معلم</h1>
+
+<div style="margin-top: 50px;" dir="rtl" class="form-container mat-elevation-z5">
   <img class="signOptionImg" [src]="'assets/images/signUp.png'" alt="">
-  <h1 *ngIf="TypeId==2" style="color: black;">تسجيل حساب جديد طالب أو معلم</h1>
-  <h1 *ngIf="TypeId==1" style="color: black;">تسجيل حساب جديد مرشد تعليمي أو مساعد معلم</h1>
   <form [formGroup]="signUpForm" (ngSubmit)="submit()">
     <div class="row" dir="rtl">
      
@@ -169,4 +171,5 @@
       <button type="submit" mat-raised-button class="lognBtn">تسجيل حساب جديد</button>
     </div>
   </form>
+</div>
 </div>

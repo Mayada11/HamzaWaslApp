@@ -28,6 +28,10 @@ import { SignSuccessComponent } from './components/sign-success/sign-success.com
 import { PackagesComponent } from './components/packages/packages.component';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
 import { SocialRegisterComponent } from './components/social-register/social-register.component';
+import { LiveVideoComponent } from './components/live-video/live-video.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ClassListComponent } from './components/class-list/class-list.component';
+import { ClassDetailsComponent } from './components/class-details/class-details.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,10 @@ import { SocialRegisterComponent } from './components/social-register/social-reg
     PackagesComponent,
     SocialMediaComponent,
     SocialRegisterComponent,
+    LiveVideoComponent,
+    AboutUsComponent,
+    ClassListComponent,
+    ClassDetailsComponent,
   ],
   imports: [
     BrowserModule,

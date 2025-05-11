@@ -1,4 +1,4 @@
-<mat-toolbar style="    z-index: 1;
+<!-- <mat-toolbar style="    z-index: 1;
     position: relative;" dir="rtl" color="primary">
  همزة وصل
   <ng-container *ngIf="user$ | async as user; else loginButton">
@@ -38,4 +38,80 @@
     <mat-icon>logout</mat-icon>
     تسجيل الخروج
   </button>
-</mat-menu>
+</mat-menu> -->
+
+
+
+
+<div class="bd-example m-0 border-0">
+    
+    <nav dir="rtl" class="navbar navbar-expand-lg bg-body-tertiary HeaderContainer">
+      <div class="container-fluid">
+        <div class="logoContainer">
+        <a class="navbar-brand" href="#" style="display: block;"><img class="logoImg" style="display: block;" src="assets/images/Logo.png"></a></div>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent" >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ulNavItems">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" routerLink="/home" routerLinkActive="active">الرئيسية</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/classList" routerLinkActive="active">الفصول التعليمية</a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link" href="#" routerLinkActive="active">المواد الرئيسية</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="profile" routerLinkActive="active">وحدة التحكم</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLinkActive="active">الخدمات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLinkActive="active">الباقات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/aboutUs" routerLinkActive="active">من نحن ؟</a>
+            </li>
+          </ul>
+<mat-icon class="notiIcon">notifications</mat-icon>
+           <ng-container *ngIf="user$ | async as user; else loginButton">
+  <button mat-button [matMenuTriggerFor]="userMenu">
+      <img
+        width="30"
+        height="30"
+        class="profile-image-toolbar"
+        [src]="user.photoURL ?? 'assets/images/image-placeholder.png'"
+      />
+      {{ user.displayName }}
+      <mat-icon>expand_more</mat-icon>
+    </button>
+           </ng-container>
+            <ng-template #loginButton>
+<!-- <mat-icon class="notiIcon">notifications</mat-icon> -->
+          <button type="button" class="btn btn-primary RegisterNowBtn" routerLink="login">سجل الأن</button>
+        </ng-template>
+        </div>
+      </div>
+    </nav>
+    
+      </div>
+      <div style="direction: rtl;" class="content">
+  <router-outlet></router-outlet>
+</div>
+      <mat-menu style="top: 100px;" dir="rtl" #userMenu="matMenu">
+  <!-- <button dir="rtl" mat-menu-item routerLink="/profile">
+    <mat-icon>account_circle</mat-icon>
+    وحدة التحكم
+  </button>
+  <button dir="rtl" mat-menu-item routerLink="/package">
+    <mat-icon>account_circle</mat-icon>
+    الباقات
+  </button> -->
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    تسجيل الخروج
+  </button>
+</mat-menu> 

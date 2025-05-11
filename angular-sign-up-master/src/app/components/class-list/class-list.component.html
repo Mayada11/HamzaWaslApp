@@ -1,0 +1,15 @@
+<div class="HomeContainer" style="text-align: center;color: black;margin-top: 150px;">
+    <img src="assets/images/firstImg6.png"  alt="Home Img" class="HomeImg">
+    <h1 style="font-size: 3em;font-family: Almarai, sans-serif;font-weight: 700;">مرحباً بك</h1>
+    <h2>اختر فصلك الدراسي اليوم</h2>
+<div class="flex-container1">
+<div class="card flex-item"  *ngFor="let classList of classLst" (click)="openClassDetails(classList.id)">
+
+    <img [src]="classList.imgUrl" class="card-img-top" style="height: 100%;" alt="...">
+    <div class="card-body card-body1"><a style="text-decoration: none;cursor: pointer;" [routerLink]="['/classDetails',classList.id]">
+      <h3 class="card-title" style="font-size: large;">{{classList.name}}</h3></a>
+    </div>
+  </div>
+
+</div>
+</div>

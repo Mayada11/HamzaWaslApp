@@ -15,16 +15,19 @@ import { SignSuccessComponent } from './components/sign-success/sign-success.com
 import { PackagesComponent } from './components/packages/packages.component';
 import { SocialRegisterComponent } from './components/social-register/social-register.component';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ClassListComponent } from './components/class-list/class-list.component';
+import { ClassDetailsComponent } from './components/class-details/class-details.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
 const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    component: LandingComponent,
-  },
+     {path:'',redirectTo:'/home',pathMatch:'full'},
+     {path:'aboutUs',
+      component: AboutUsComponent
+     },
+
   {
     path: 'login',
     component: LoginComponent,
@@ -47,11 +50,21 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    ...canActivate(redirectUnauthorizedToLogin),
+    // ...canActivate(redirectUnauthorizedToLogin),
   },
   {
     path: 'profile',
     component: ProfileComponent,
+     ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path: 'classList',
+    component: ClassListComponent,
+     ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path:'classDetails/:dId',
+    component: ClassDetailsComponent,
      ...canActivate(redirectUnauthorizedToLogin),
   },
   {

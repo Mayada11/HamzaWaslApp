@@ -1,0 +1,128 @@
+
+.card-container {
+    display: flex;
+    justify-content: space-around;  /* Center the card horizontally */
+  }
+  
+  .card {
+   
+    flex: 1;
+    background: white;
+    margin: 100px 70px 50px;
+    height: 250px;
+  }
+  .card-body-with-img{
+    padding: 20px;
+    text-align: center;
+    align-content: center;
+  }
+  .rounded-start {
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+.cardTitle{
+  color: black !important;
+  font-size: 12px;
+  margin: 10px;
+}
+.searchButton{
+  border-radius: 15px !important;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 60px;
+  color: white;
+  box-shadow: 0 4px 10px -2px gray;
+}
+.searchInput{
+  height: 50px;
+  border: none;
+  border-radius: 15px !important;
+  box-shadow: 0 4px 10px -2px gray;
+
+}
+.cardin{
+    flex: 1;
+    background: white;
+    margin: 100px 30px 50px !important;
+    height: 100%; 
+    width: 100% !important;
+}
+
+mat-toolbar {
+  justify-content: space-between;
+}
+
+.content {
+  margin-top: 100px;
+}
+
+.profile-image-toolbar {
+  border-radius: 100%;
+  margin-right: 8px;
+}
+.RegisterNowBtn{
+    background-color: #FFBC01 ;
+    border: #FFBC01;
+    width: 113px;
+    height: 38px;
+}
+.HeaderContainer{
+    height: 100px;
+    background-color: #E4E2E2 !important;
+    opacity: 100%;
+    padding: 0 92px; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+
+}
+.logoImg{
+    width: 90px;
+    height: 79px;
+}
+.logoContainer{
+    height: 158px;
+    position: absolute;
+    top: 0;
+    background-color: aliceblue;
+    margin: 0;
+    border-radius: 0 0 50px 50px;
+    z-index: 1;
+}
+.logoContainer{
+    height: 158px;
+    position: absolute;
+    top: 0;
+    background-color: aliceblue;
+    margin: 0;
+    border-radius: 0 0 50px 50px;
+    width: 121px;
+    padding-top: 30px;
+}
+.notiIcon{
+    font-size: 32px;
+    color: #FFBC01;
+    height: 32px;
+    width: 32px;
+    
+}
+.ulNavItems{
+    padding-right: 100px;
+    width: 70%;
+    font-size: 1.3em;
+}
+.nav-link{
+    color: #666666 !important;
+
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #FFBC01 !important;
+    border-bottom: 1px solid #ffc107;
+}
+.navbar-toggler{
+    position: absolute;
+    left: 10px;
+}

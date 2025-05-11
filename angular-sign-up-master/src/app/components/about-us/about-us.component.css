@@ -1,0 +1,17 @@
+.aboutUs{
+    width: 100%;
+    text-align: center;
+    margin-top: 150px;
+}
+.aboutUsWord{
+    width: 90%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px 2px gray;
+    margin-top: 50px;
+    font-size: 17px;
+    font-family: Almarai, sans-serif;
+}
+.projElement{
+    display: flex;
+}
