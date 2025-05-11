@@ -9,7 +9,7 @@
 }
 
 .flex-item {
-    width: 460px !important;
+    width: 420px !important;
     height: 220px;
     border: 1px black solid;
     margin: 15px;
@@ -19,8 +19,8 @@ background-color: rgba(0,0,0,0);
 }
 .card-body1 {
     position: absolute;
-    left: 12px;
-    right: 12px;
+    left: 11px;
+    right: 11px;
     bottom: 0px;
     background-color: #FFBC01;
     height: 50px;
