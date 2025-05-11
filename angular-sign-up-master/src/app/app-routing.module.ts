@@ -18,6 +18,10 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ClassListComponent } from './components/class-list/class-list.component';
 import { ClassDetailsComponent } from './components/class-details/class-details.component';
+import { LiveVideoComponent } from './components/live-video/live-video.component';
+import { ClassVideoComponent } from './components/class-video/class-video.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MainservicesComponent } from './components/mainservices/mainservices.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -53,6 +57,10 @@ const routes: Routes = [
     // ...canActivate(redirectUnauthorizedToLogin),
   },
   {
+    path: 'mainServices',
+    component: MainservicesComponent,
+  },
+  {
     path: 'profile',
     component: ProfileComponent,
      ...canActivate(redirectUnauthorizedToLogin),
@@ -82,6 +90,17 @@ const routes: Routes = [
     component: SocialMediaComponent,
      ...canActivate(redirectUnauthorizedToLogin),
   },
+   {
+    path: 'liveVideo',
+    component: LiveVideoComponent,
+     ...canActivate(redirectUnauthorizedToLogin),
+  },
+   {
+    path: 'classVideo',
+    component: ClassVideoComponent,
+     ...canActivate(redirectUnauthorizedToLogin),
+  },    {path:'**',component:NotFoundComponent}
+
 ];
 
 @NgModule({

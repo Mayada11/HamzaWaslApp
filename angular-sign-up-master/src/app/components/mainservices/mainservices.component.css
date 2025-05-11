@@ -1,0 +1,12 @@
+h1{
+        width: 40%;
+    background-color: #0097FF;
+    margin: 0 auto;
+    height: 70px;
+    border-radius: 50px;
+    font-size: 3em;
+    font-family: 'Almarai';
+    vertical-align: middle;
+    font-weight: 700;
+    padding: 20px;
+}

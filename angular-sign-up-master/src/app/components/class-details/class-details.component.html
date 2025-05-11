@@ -5,10 +5,10 @@
 <div class="flex-container1" style="justify-content: center;" >
 <div class="card flex-item"  *ngFor="let classList of classList?.classDetails;index as i">
 
-    <p style="font-size: 60px;color: #0097FF;font-weight: bold;height: 100%;
+    <p  style="font-size: 60px;color: #0097FF;font-weight: bold;height: 100%;
     
     margin-top: 20%;">{{i+1}}</p>
-    <div class="card-body card-body1">
+    <div class="card-body card-body1" (click)="showVideo(classList.videoUrl)" style="cursor: pointer;">
       <h5 class="card-title" style="font-size: large;">{{classList.name}}</h5>
     </div>
   </div>

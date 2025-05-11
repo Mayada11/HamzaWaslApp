@@ -126,3 +126,15 @@ mat-toolbar {
     position: absolute;
     left: 10px;
 }
+.btn1{
+        width: 40%;
+    background-color: #FFBC01 ;
+    margin: 0 auto;
+    height: 70px;
+    border-radius: 50px;
+    font-size: 2em;
+    font-family: 'Almarai';
+    vertical-align: middle;
+    font-weight: 700;
+    padding: 20px;
+}

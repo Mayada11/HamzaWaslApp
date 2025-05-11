@@ -32,6 +32,9 @@ import { LiveVideoComponent } from './components/live-video/live-video.component
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ClassListComponent } from './components/class-list/class-list.component';
 import { ClassDetailsComponent } from './components/class-details/class-details.component';
+import { ClassVideoComponent } from './components/class-video/class-video.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MainservicesComponent } from './components/mainservices/mainservices.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { ClassDetailsComponent } from './components/class-details/class-details.
     AboutUsComponent,
     ClassListComponent,
     ClassDetailsComponent,
+    ClassVideoComponent,
+    NotFoundComponent,
+    MainservicesComponent,
   ],
   imports: [
     BrowserModule,
