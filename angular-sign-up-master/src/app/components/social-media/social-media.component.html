@@ -39,7 +39,7 @@
 <div class="main" *ngIf="soc">
     <div class="cover">
   <img 
-      [src]="soc.socialBackImg ?? '/assets/images/image-placeholder.png'" 
+      [src]="soc.socialBackImg ?? 'assets/images/image-placeholder.png'" 
     />
     <div (click)="inputField.click()" class="overlay">
     <div  class="text">ارفق صورة غلاف</div>
@@ -55,7 +55,7 @@
     width: 100%;
     border: #d0efff solid 3px;">
  <img style="width: 100%;height: 100%;"
-      [src]="soc.socialProfileImg ?? '/assets/images/image-placeholder.png'"
+      [src]="soc.socialProfileImg ?? 'assets/images/image-placeholder.png'"
     />
      <div (click)="inputField2.click()" class="overlay">
     <div  class="text">ارفق صورة شخصية</div>
