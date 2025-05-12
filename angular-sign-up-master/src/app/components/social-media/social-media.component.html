@@ -50,6 +50,10 @@
       <input #inputField hidden type="file" (change)="uploadFile($event,false)" />
     </div>
     <div class="profile">
+      <div style="display: flex;">
+        <div style="position: relative;
+    width: 100%;
+    border: #d0efff solid 3px;">
  <img style="width: 100%;height: 100%;"
       [src]="soc.socialProfileImg ?? '/assets/images/image-placeholder.png'"
     />
@@ -57,4 +61,10 @@
     <div  class="text">ارفق صورة شخصية</div>
       <input #inputField2 hidden type="file" (change)="uploadFile($event,true)" />
     </div>
+    </div>
+    <div style="padding-top: 52%;
+    margin-right: 10px;">
+    <p style="font-weight: bold;
+    font-size: 2em;font-family: 'Almarai';">{{soc.socialName}}</p>    <p style="font-size: 1.5em;font-family: 'Almarai';">{{soc.creator}}</p></div></div>
+
 </div>

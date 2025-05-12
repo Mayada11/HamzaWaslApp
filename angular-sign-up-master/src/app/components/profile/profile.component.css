@@ -59,6 +59,7 @@ table, th, td {
 table{
   position: relative;
   border: 1px solid black;
+  text-align: center;
 }
 #motion-effect  tr {
   transition-duration: 0.3s;

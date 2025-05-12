@@ -4,7 +4,9 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { switchMap, tap } from 'rxjs';
 import { ProfileUser } from 'src/app/models/user';
+import { UserPackage } from 'src/app/models/user-package';
 import { ImageUploadService } from 'src/app/services/image-upload.service';
+import { PackageService } from 'src/app/services/package.service';
 import { UserCatService } from 'src/app/services/user-cat.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -17,6 +19,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class ProfileComponent implements OnInit {
   user$ = this.usersService.currentUserProfile$;
   userCat?:string
+  packages?:UserPackage;
   profileForm = this.fb.group({
     uid: [''],
     displayName: [''],
@@ -31,7 +34,8 @@ export class ProfileComponent implements OnInit {
     private toast: HotToastService,
     private usersService: UsersService,
     private fb: NonNullableFormBuilder,
-    private usCatService:UserCatService
+    private usCatService:UserCatService,
+    private packageService:PackageService
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +43,9 @@ export class ProfileComponent implements OnInit {
       .pipe(untilDestroyed(this), tap(console.log))
       .subscribe((user) => {
         this.userCat = this.usCatService.getUserCat(user?.userCategory as number);
+       this.packages = this.packageService.getPackageByID(user?.packageID);
       });
+      
   }
 
   uploadFile(event: any, { uid }: ProfileUser) {
