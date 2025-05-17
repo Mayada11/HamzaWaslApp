@@ -30,5 +30,16 @@ packages:UserPackage[] =[];
          console.log(this.packages)
           });
   }
-
+getAdditionalClass(pkg: any) {
+  switch (pkg) {
+    case 'ذهبية':
+      return 'gold-package';
+    case 'فضية':
+      return 'silver-package';
+    case 'برونزية':
+      return 'bronze-package';
+    default:
+      return 'default-package';
+  }
+}
 }

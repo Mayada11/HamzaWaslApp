@@ -1,0 +1,57 @@
+<div class="chat-container">
+  <div class="chat-sidebar">
+    <h3>المحادثات</h3>
+    <div class="users-list">
+      <div *ngFor="let user of users" 
+           class="user-item"
+           [class.active]="selectedUser?.uid === user.uid"
+           (click)="selectUser(user)">
+        <div class="user-avatar">
+          <img [src]="user.photoURL || 'assets/images/image-placeholder.png'" alt="صورة المستخدم">
+        </div>
+        <div class="user-info">
+          <h4>{{ user.displayName }}</h4>
+          <p *ngIf="user.userCategory === '4'">طالب</p>
+          <p *ngIf="user.userCategory === '3'">معلم</p>
+          <p *ngIf="user.userCategory === '2'">مساعد معلم</p>
+          <p *ngIf="user.userCategory === '1'">مرشد أكاديمي </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="chat-main">
+    <div class="chat-header" style="display: flex;" *ngIf="selectedUser">
+       <div class="user-avatar">
+                <img [src]="selectedUser.photoURL || 'assets/images/image-placeholder.png'" alt="صورة المستخدم"></div>
+                <div class="user-info" style="align-content: center;">
+      <h3 style="margin: 0;">{{ selectedUser.displayName }}</h3></div>
+    </div>
+    
+    <div class="messages-container" #scrollContainer>
+      <div *ngFor="let message of messages" 
+           [ngClass]="{'message-right': message.senderId === (currentUser$ | async)?.uid, 
+                      'message-left': message.senderId !== (currentUser$ | async)?.uid}"
+           class="message">
+        <div class="message-content">
+          <p>{{ message.message }}</p>
+          <small>{{ message.timestamp.toDate() | date:'shortTime' }}</small>
+        </div>
+      </div>
+    </div>
+    
+    <div class="chat-input" *ngIf="selectedUser">
+      <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+        <input type="text" 
+               formControlName="message" 
+               placeholder="اكتب رسالتك هنا..."
+               class="message-input">
+        <button type="submit" 
+                [disabled]="messageForm.invalid"
+                class="send-button">
+          إرسال
+        </button>
+      </form>
+    </div>
+  </div>
+</div> 

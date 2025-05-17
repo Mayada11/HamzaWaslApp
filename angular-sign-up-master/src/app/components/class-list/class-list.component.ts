@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsreCat } from '../Enums/usre-cat';
 import { IClassList } from 'src/app/models/iclass-list';
 import { ClassListServiceService } from 'src/app/services/class-list-service.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-class-list',
@@ -10,10 +11,12 @@ import { ClassListServiceService } from 'src/app/services/class-list-service.ser
 })
 export class ClassListComponent implements OnInit {
 
-   classLst:IClassList[]
+   classLst:any
   UserTypes = UsreCat;
-  constructor(private classService:ClassListServiceService){
-  this.classLst = classService.classLst;
+  constructor(private classlistService:UsersService){
+   this.classlistService.getlessonData().subscribe(ele=>{
+    this.classLst = ele;
+   })
   
   }
   openClassDetails(id:number){

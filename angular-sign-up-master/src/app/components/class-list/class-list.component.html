@@ -6,7 +6,7 @@
 <div class="card flex-item"  *ngFor="let classList of classLst" (click)="openClassDetails(classList.id)">
 
     <img [src]="classList.imgUrl" class="card-img-top" style="height: 100%;" alt="...">
-    <div class="card-body card-body1"><a style="text-decoration: none;cursor: pointer;" [routerLink]="['/classDetails',classList.id]">
+    <div class="card-body card-body1"><a style="text-decoration: none;cursor: pointer;" [routerLink]="['/classes',classList.id]">
       <h3 class="card-title" style="font-size: large;">{{classList.name}}</h3></a>
     </div>
   </div>

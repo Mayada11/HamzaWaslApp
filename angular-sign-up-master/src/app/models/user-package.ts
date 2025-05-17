@@ -5,5 +5,7 @@ export interface UserPackage {
     price:string,
     userCategory:string,
     type:string,
-    freePackage:boolean
+    freePackage:boolean,
+    paymentUrl?:string,
+    packageColor?:string
 }

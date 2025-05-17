@@ -1,17 +1,121 @@
-<div class="HomeContainer" style="text-align: center;color: black;">
+<div  class="HomeContainer" style="text-align: center;color: black;">
     <img src="assets/images/successNew.png"  alt="Home Img" class="HomeImg">
     <h1 style="font-size: 3em;font-family: Almarai, sans-serif;font-weight: 700;padding-top: 50px;">ابدأ رحلتك اليوم</h1>
     <h3>اختر حصتك اليوم</h3>
-<div class="flex-container1" style="justify-content: center;" >
-<div class="card flex-item"  *ngFor="let classList of classList?.classDetails;index as i">
+    <h1 style="text-align: right;padding-right: 20px;">الفيديوهات التعليمية</h1>
+<div class="flex-container1" >
+  <ng-container *ngIf="materials?.videoUrls">
+<div  class="card flex-item"  *ngFor="let classList1 of materials?.videoUrls;index as i">
 
     <p  style="font-size: 60px;color: #0097FF;font-weight: bold;height: 100%;
     
     margin-top: 20%;">{{i+1}}</p>
-    <div class="card-body card-body1" (click)="showVideo(classList.videoUrl)" style="cursor: pointer;">
-      <h5 class="card-title" style="font-size: large;">{{classList.name}}</h5>
+    <div class="card-body card-body1" style="cursor: pointer;">
+      <h5 class="card-title" style="font-size: large;"><a [href]="classList1">link {{i+1}}</a></h5>
     </div>
+  <div dir="rtl" style="padding-top: 90px;">
+<!-- <div *ngIf="sameUser == true"  (click)="toggleInput()" class="plusBTN"><p>+</p></div> -->
+</div> 
   </div>
+  </ng-container>
+  <div *ngIf="sameUser==true" style="display: flex;align-items: center;">
+<div *ngIf="showInput">
+   <button mat-icon-button (click)="addVideoUrl()">
+  <mat-icon>link</mat-icon></button>
+  <input style="position: relative;"  matInput placeholder="Enter link" [(ngModel)]="videoURL" /> 
+</div>
+<button mat-icon-button (click)="toggleInput()">
+  <mat-icon>{{ showInput ? 'close' : 'add' }}</mat-icon>
+</button>
+</div>
+</div>
 
+
+
+<!--  -->
+    <h1 style="text-align: right;padding-right: 100px;">الكتب </h1>
+<div class="flex-container1">
+  <ng-container *ngIf="materials?.booksUrls">
+<div  class="card flex-item"  *ngFor="let classList1 of materials?.booksUrls;index as i">
+
+    <img src="assets/images/booksImg.jpg" style="width: 100%;height: 100%;" alt="">
+    <div class="card-body card-body1" style="cursor: pointer;">
+      <h5 class="card-title" style="font-size: large;"><a [href]="classList1">link {{i}}</a></h5>
+    </div>
+  <div dir="rtl" style="padding-top: 90px;">
+<!-- <div *ngIf="sameUser == true"  (click)="toggleInput()" class="plusBTN"><p>+</p></div> -->
+</div> 
+  </div>
+  </ng-container>
+  <div *ngIf="sameUser==true" style="display: flex;align-items: center;">
+<div *ngIf="showBook">
+   <button mat-icon-button (click)="addBookUrl()">
+  <mat-icon>link</mat-icon></button>
+  <input style="position: relative;"  matInput placeholder="Enter link" [(ngModel)]="booksUrls" /> 
+</div>
+<button mat-icon-button (click)="toggleInputBook()">
+  <mat-icon>{{ showBook ? 'close' : 'add' }}</mat-icon>
+</button>
 </div>
 </div>
+
+
+<!--  -->
+    <h1 style="text-align: right;padding-right: 100px;">الامتحانات </h1>
+<div class="flex-container1">
+  <ng-container *ngIf="materials?.examUrls">
+<div  class="card flex-item"  *ngFor="let classList1 of materials?.examUrls;index as i">
+
+    <img src="assets/images/examImg.jpg" style="width: 100%;height: 100%;" alt="">
+    <div class="card-body card-body1" style="cursor: pointer;">
+      <h5 class="card-title" style="font-size: large;"><a [href]="classList1">link {{i}}</a></h5>
+    </div>
+  <div dir="rtl" style="padding-top: 90px;">
+<!-- <div *ngIf="sameUser == true"  (click)="toggleInput()" class="plusBTN"><p>+</p></div> -->
+</div> 
+  </div>
+  </ng-container>
+  <div *ngIf="sameUser==true" style="display: flex;align-items: center;">
+<div *ngIf="showExam">
+   <button mat-icon-button (click)="addExamUrl()">
+  <mat-icon>link</mat-icon></button>
+  <input style="position: relative;"  matInput placeholder="Enter link" [(ngModel)]="examUrls" /> 
+</div>
+<button mat-icon-button (click)="toggleInputExam()">
+  <mat-icon>{{ showExam ? 'close' : 'add' }}</mat-icon>
+</button>
+</div>
+</div>
+
+<!--  -->
+    <h1 style="text-align: right;padding-right: 100px;">الالعاب </h1>
+<div class="flex-container1">
+  <ng-container *ngIf="materials?.gamesUrls">
+<div  class="card flex-item"  *ngFor="let classList1 of materials?.gamesUrls;index as i">
+
+    <img src="assets/images/gamesImg.jpg" style="width: 100%;height: 100%;" alt="">
+    <div class="card-body card-body1" style="cursor: pointer;">
+      <h5 class="card-title" style="font-size: large;"><a [href]="classList1">link {{i}}</a></h5>
+    </div>
+  <div dir="rtl" style="padding-top: 90px;">
+<!-- <div *ngIf="sameUser == true"  (click)="toggleInput()" class="plusBTN"><p>+</p></div> -->
+</div> 
+  </div>
+  </ng-container>
+  <div *ngIf="sameUser==true" style="display: flex;align-items: center;">
+<div *ngIf="showGame">
+   <button mat-icon-button (click)="addGameUrl()">
+  <mat-icon>link</mat-icon></button>
+  <input style="position: relative;"  matInput placeholder="Enter link" [(ngModel)]="gamesUrls" /> 
+</div>
+<button mat-icon-button (click)="toggleInputGame()">
+  <mat-icon>{{ showGame ? 'close' : 'add' }}</mat-icon>
+</button>
+</div>
+</div>
+</div>
+
+
+
+
+

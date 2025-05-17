@@ -12,6 +12,8 @@ packages:UserPackage[];
       description:["خصم 25%","كل ميزات الباقة الأساسية","أولوية في الحجز للحصص المميزة","دعوة مجانية لصديق واحد","ملاحظة: يمكن الترقية من الخطة الأساسية في أي","وقت مع خصم الفارق المدفوع."],
       price:"1500 جنية/ترم بدلا من 2000",
       userCategory:"3",
+      packageColor:"ذهبية",
+      paymentUrl:"https://paymob.xyz/bujXPtWL/",
     type:"ترم",
   freePackage:false},
       {id:2,
@@ -19,6 +21,8 @@ packages:UserPackage[];
         description:["حضور غير محدود لجميع الحصص المباشرة","مشاهدة الحصص المسجلة في أي وقت","تحميل المذكرات والملفات","شهادة معتمدة لكل مادة","دعم فني يومي","ملاحظة: متاح خصم 10% في حالة اشتراك طالبين أو أكثر من نفس الأسرة."],
         price:"500 جنية /شهريا",
         userCategory:"3",
+        packageColor:"فضية",
+        paymentUrl:"https://paymob.xyz/TbQdTeh0/",
         type:"شهر",
         freePackage:false
       },
@@ -29,12 +33,14 @@ packages:UserPackage[];
         price:"",
         userCategory:"3",
         type:"مجانية",
+        packageColor:"برونزية",
         freePackage:true
       },{
         id:4,
         name:"خبير",
-        description:["قريبا"],
-        price:"",
+        description:[""],
+        price:"قريبا",
+        packageColor:"ذهبية",
         userCategory:"4",
         type:"",
         freePackage:false
@@ -44,9 +50,11 @@ packages:UserPackage[];
         id:5,
         name:"مُتميّز",
         description:["ظهور مميز في الصفحة الرئيسية للمنصة","دعم تقني خاص للمعلم","دعوة حتى 2 مساعدين","تقارير أداء متقدمة","ملاحظة: يمكن الاشتراك أو إلغاء الباقة ","في أي وقت بدون فقدان بيانات الطلاب أو الحصص."],
-        price:"شهريا",
+        price:"500 /شهر",
         userCategory:"4",
         type:"شهرية",
+        packageColor:"فضية",
+        paymentUrl:"https://paymob.xyz/TbQdTeh0/",
         freePackage:false
 
       },{
@@ -56,12 +64,14 @@ packages:UserPackage[];
         price:"",
          userCategory:"4",
         type:"مجانية",
+        packageColor:"برونزية",
         freePackage:true
       },
       {
         id:7,
         name:"منسق صف",
         description:[""],
+        packageColor:"ذهبية",
         price:"قريبا",
         userCategory:"2",
         type:"",
@@ -71,8 +81,11 @@ packages:UserPackage[];
         id:8,
         name:"مساعد نشط",
         description:["الرد على استفسارات الطلاب","إدارة الغرف أثناء البث","رفع ملفات ومتابعة الواجبات","إشراف مباشر على تفاعل الطلاب","أرباح بنسبة 20%","ملاحظة: يمكن للمساعد العمل مع أكثر من معلم، والنسبة تُحسب بناءً على مساهماته."],
-        price:"شهرياً",
+        price:"/500 شهرياً",
         userCategory:"2",
+        packageColor:"فضية",
+        
+        paymentUrl:"https://paymob.xyz/TbQdTeh0/",
         type:"شهرياً",
         freePackage:false
       },{
@@ -82,12 +95,15 @@ packages:UserPackage[];
         price:"",
         userCategory:"2",
         type:"مجانية",
+        packageColor:"برونزية",
         freePackage:true
       },{
         id:10,
         name:"مرشد متميز",
         description:[],
         price:"قريبا",
+        packageColor:"ذهبية",
+        
          userCategory:"1",
         type:"",
         freePackage:false
@@ -98,6 +114,7 @@ packages:UserPackage[];
         price:"قريبا",
         userCategory:"1",
        type:"",
+       packageColor:"فضية",
        freePackage:false
       },
       {
@@ -107,6 +124,7 @@ packages:UserPackage[];
         price:"",
         userCategory:"1",
        type:"مجانية",
+       packageColor:"برونزية",
        freePackage:true
       }
       ]

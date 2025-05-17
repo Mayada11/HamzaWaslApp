@@ -1,0 +1,156 @@
+.chat-container {
+  display: flex;
+  height: 80vh;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.chat-sidebar {
+  width: 30%;
+  max-width: 300px;
+  border-left: 5px solid #3f51b5;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  background-color: #fff;
+}
+
+.user-item:hover,
+.user-item.active {
+  background-color: #e3f2fd;
+}
+
+.user-avatar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.user-info h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ccc;
+}
+
+.chat-header {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+}
+
+.messages-container {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fafafa;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.message-left {
+  justify-content: flex-start;
+}
+
+.message-right {
+  justify-content: flex-end;
+}
+
+.message-content {
+  max-width: 60%;
+  padding: 0.8rem;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  position: relative;
+}
+
+.message-right .message-content {
+  background-color: #c8e6c9;
+}
+
+.message-content p {
+  margin: 0;
+}
+
+.message-content small {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.7rem;
+  text-align: right;
+  color: #555;
+}
+
+.chat-input {
+  padding: 0.8rem;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.message-input {
+  width: 80%;
+  padding: 0.7rem;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.send-button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.send-button:disabled {
+  background-color: #9fa8da;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .chat-container {
+    flex-direction: column;
+  }
+
+  .chat-sidebar {
+    width: 100%;
+    max-width: none;
+    border-left: none;
+    border-bottom: 2px solid #3f51b5;
+  }
+
+  .chat-main {
+    border-right: none;
+  }
+}

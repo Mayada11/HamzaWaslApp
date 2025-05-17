@@ -1,19 +1,34 @@
-<div style="display: flex;">
-    <img class="signOptionImg" 
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;padding-top: 30px;">
+     <img class="signOptionImg" 
         [src]="'assets/images/signOption.png'" alt="">
-    <div *ngFor="let package of packages" class="form-container mat-elevation-z5 dirrtl package">
-        <h1>{{package.name}}</h1>
-        <ul *ngFor="let des of package.description">
-            <li>{{des}}</li>
+    <!-- باقة لكل مستخدم -->
+    <div 
+      *ngFor="let package of packages" 
+      [ngClass]="['package', getAdditionalClass(package.packageColor)]" 
+      style="flex: 1 1 30%; max-width: 30%; margin: 15px;">
+        
+        <!-- اسم الباقة -->
+        <h1>{{ package.name }}</h1>
+        
+        <!-- وصف الباقة -->
+        <ul>
+          <li *ngFor="let des of package.description">{{ des }}</li>
         </ul>
-        <h1>{{package.price}}</h1>
+        
+        <!-- سعر الباقة -->
+        <h1>{{ package.price }}</h1>
+        
+        <!-- زر الاشتراك أو المشترك بالفعل -->
         <div class="center margin-top">
-            <ng-container *ngIf="package.id != userCurrentPack;else currentPack">            <button  mat-raised-button class="lognBtn">أشترك الأن</button>
-            </ng-container>
-            <ng-template #currentPack>
-                <button  mat-raised-button class="lognBtn">مشترك بالفعل</button>
-            </ng-template>
-          </div>
+          <ng-container *ngIf="package.id != userCurrentPack; else currentPack">
+            <a *ngIf="package.paymentUrl" 
+               [href]="package.paymentUrl" 
+               mat-raised-button 
+               class="lognBtn">أشترك الأن</a>
+          </ng-container>
+          <ng-template #currentPack>
+            <button mat-raised-button class="lognBtn">مشترك بالفعل</button>
+          </ng-template>
+        </div>
     </div>
-
 </div>

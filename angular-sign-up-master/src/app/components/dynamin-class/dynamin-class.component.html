@@ -1,0 +1,50 @@
+<section class="vh-100 bg-light">
+  <div class="container py-5 h-100">
+    <div class="row g-4 justify-content-center align-items-stretch">
+        <div *ngFor="let re of returneds" class="col-md-12 col-lg-4 d-flex">
+  <div class="card shadow-sm w-100 h-100 d-flex flex-column justify-content-between" style="border-radius: 15px;">
+    <div class="card-body text-center d-flex flex-column">
+
+            <!-- صورة المعلم -->
+            <div class="mt-3 mb-4">
+              <img 
+                [src]="re.teacherImg !== '' ? re.teacherImg : 'assets/images/image-placeholder.png'" 
+                class="rounded-circle shadow" 
+                style="width: 100px; height: 100px; object-fit: cover;" 
+                alt="Teacher Image">
+            </div>
+
+            <!-- معلومات المعلم -->
+            <h5 class="fw-bold text-primary mb-1">{{ re.teacherName }}</h5>
+            <p class="mb-1 text-muted">{{ re.stage }}</p>
+            <p class="mb-3 text-muted">{{ re.className }}</p>
+
+            <!-- أيقونات التواصل -->
+            <div class="mb-4">
+              <button type="button" class="btn btn-outline-primary btn-sm rounded-circle me-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+              <button type="button" class="btn btn-outline-info btn-sm rounded-circle me-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+              <button type="button" class="btn btn-outline-success btn-sm rounded-circle">
+                <i class="fab fa-skype"></i>
+              </button>
+            </div>
+
+            <!-- الأزرار -->
+            <div class="d-grid gap-2">
+              <button 
+                (click)="gotolessons(re.id, re.teacherID)" 
+                class="btn btn-primary btn-sm rounded-pill">
+                الذهاب إلى المواد
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

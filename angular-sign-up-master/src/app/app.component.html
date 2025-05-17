@@ -1,48 +1,3 @@
-<!-- <mat-toolbar style="    z-index: 1;
-    position: relative;" dir="rtl" color="primary">
- همزة وصل
-  <ng-container *ngIf="user$ | async as user; else loginButton">
-    <button mat-button [matMenuTriggerFor]="userMenu">
-      <img
-        width="30"
-        height="30"
-        class="profile-image-toolbar"
-        [src]="user.photoURL ?? 'assets/images/image-placeholder.png'"
-      />
-      {{ user.displayName }}
-      <mat-icon>expand_more</mat-icon>
-    </button>
-  </ng-container>
-  <ng-template #loginButton>
-    <button mat-button routerLink="login">
-      <mat-icon>login</mat-icon>
-      تسجيل الدخول
-    </button>
-  </ng-template>
-</mat-toolbar>
-
-<div style="direction: rtl;" class="content">
-  <router-outlet></router-outlet>
-</div>
-
-<mat-menu dir="rtl" #userMenu="matMenu">
-  <button dir="rtl" mat-menu-item routerLink="/profile">
-    <mat-icon>account_circle</mat-icon>
-    وحدة التحكم
-  </button>
-  <button dir="rtl" mat-menu-item routerLink="/package">
-    <mat-icon>account_circle</mat-icon>
-    الباقات
-  </button>
-  <button mat-menu-item (click)="logout()">
-    <mat-icon>logout</mat-icon>
-    تسجيل الخروج
-  </button>
-</mat-menu> -->
-
-
-
-
 <div class="bd-example m-0 border-0">
     
     <nav dir="rtl" class="navbar navbar-expand-lg bg-body-tertiary HeaderContainer">
@@ -59,9 +14,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/classList" routerLinkActive="active">الفصول التعليمية</a>
-            </li>
-           <li class="nav-item">
-              <a class="nav-link"  routerLinkActive="active">المواد الرئيسية</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="profile" routerLinkActive="active">وحدة التحكم</a>

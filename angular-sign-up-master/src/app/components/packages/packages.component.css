@@ -1,5 +1,91 @@
-.package{
+/* التنسيق الأساسي للـ Package */
+.package {
     text-align: center;
     direction: rtl;
     width: 30%;
+    margin: 20px; /* إضافة مسافة بين الباقات */
+    border-radius: 8px; /* حواف دائرية للباقات */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+    padding: 20px; /* مسافة داخلية للتباعد بين النصوص */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير تفاعل */
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عمودياً */
+    justify-content: space-between; /* توزيع العناصر بين الأعلى والأسفل */
+    height: 460px; /* تحديد الارتفاع */
+}
+
+/* تأثير عند المرور على الباقة */
+.package:hover {
+    transform: scale(1.05); /* تكبير الباقة عند المرور عليها */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* زيادة الظل عند المرور */
+}
+
+/* الباقة الذهبية */
+.gold-package {
+    background-color: rgba(255, 234, 0, 20%) !important;
+    color: black;
+}
+
+/* الباقة الفضية */
+.silver-package {
+    background-color: rgba(0, 111, 255, 20%);
+    color: black;
+}
+
+/* الباقة البرونزية */
+.bronze-package {
+    background-color: rgba(0, 21, 255, 20%);
+    color: black;
+}
+
+/* الباقة الافتراضية */
+.default-package {
+    background-color: lightgray;
+    color: black;
+}
+
+/* تحسين حجم النص */
+.package h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-family: 'Almarai', sans-serif;
+}
+
+/* تحسين عرض الوصف */
+.package ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.package ul li {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+/* تنسيق زر الاشتراك */
+.lognBtn {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* مسافة بين المحتوى والزر */
+}
+
+.lognBtn:hover {
+    background-color: #0056b3;
+}
+
+/* تنسيق زر "مشترك بالفعل" */
+button.mat-raised-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+button.mat-raised-button:hover {
+    background-color: #5a6268;
 }

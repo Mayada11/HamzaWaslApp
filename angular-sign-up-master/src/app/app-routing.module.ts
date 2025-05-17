@@ -22,8 +22,11 @@ import { LiveVideoComponent } from './components/live-video/live-video.component
 import { ClassVideoComponent } from './components/class-video/class-video.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MainservicesComponent } from './components/mainservices/mainservices.component';
+import { DynaminClassComponent } from './components/dynamin-class/dynamin-class.component';
+import { CreateLessonComponent } from './components/create-lesson/create-lesson.component';
+import { ChatComponent } from './components/chat/chat.component';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
 const routes: Routes = [
@@ -91,15 +94,26 @@ const routes: Routes = [
      ...canActivate(redirectUnauthorizedToLogin),
   },
    {
-    path: 'liveVideo',
-    component: LiveVideoComponent,
+    path: 'classes/:dId',
+    component: DynaminClassComponent,
      ...canActivate(redirectUnauthorizedToLogin),
   },
    {
     path: 'classVideo',
     component: ClassVideoComponent,
      ...canActivate(redirectUnauthorizedToLogin),
-  },    {path:'**',component:NotFoundComponent}
+  }, 
+   {
+    path: 'createLesson',
+    component: CreateLessonComponent,
+     ...canActivate(redirectUnauthorizedToLogin),
+  },
+  {
+    path: 'chat',
+    component: ChatComponent,
+    ...canActivate(redirectUnauthorizedToLogin)
+  },
+  {path:'**',component:NotFoundComponent}
 
 ];
 

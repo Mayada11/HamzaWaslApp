@@ -1,106 +1,338 @@
+/* ===== General Layout ===== */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  font-family: 'Almarai', sans-serif;
+}
+
+.dashboard-header {
+  background-color: #FFBC01;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+}
+
+/* ===== Main Area with Columns ===== */
+.dashboard-content {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 0 0 10px 10px;
+  flex-wrap: wrap;
+}
+
+/* ===== Columns ===== */
+.dashboard-section {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  flex: 1;
+  min-width: 280px;
+}
+
+.right-sidebar {
+  max-width: 25%;
+  text-align: center
+  ;
+}
+
+.middle-content {
+  max-width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: start;
+}
+
+.left-sidebar {
+  max-width: 30%;
+  overflow-y: scroll;
+  height: 500px;
+}
+
+/* ===== Profile Image ===== */
+.profile-image img {
+  border-radius: 50%;
+  border: 4px solid #FFBC01;
+  object-fit: cover;
+}
 .profile-image {
   position: relative;
-  width: 120px;
-  margin: auto;
+  display: inline-block;
 }
 
-.profile-image > img {
-  border-radius: 100%;
-  object-fit: cover;
-  object-position: center;
-  border: 5px solid #FFBC01;
-}
-
-.profile-image > button {
+.upload-text {
   position: absolute;
   bottom: 10px;
-  right: 0;
-}
-th{
-  border: 1px solid black;
-    background-color: #ffc107;
-    color: white;
-    text-align: center;
-    font-family: Almarai;
-}
-.form-container {
-  max-width: 400px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* خلفية داكنة للنص */
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  display: none; /* إخفاء النص بشكل افتراضي */
 }
 
-.row {
-  display: flex;
-  gap: 16px;
+.profile-image:hover .upload-text {
+  display: block; /* إظهار النص عند مرور الماوس */
 }
-.dirLTR{
-  direction: ltr;
+
+
+/* ===== Table Styling ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
 }
-.dirRTL{
-  direction: rtl;
-}
-.inputStyleSpan{
-  border-radius: 0px 10px 10px 0px;
-  /* border: black; */
-  border: 1px solid black;
-  font-weight: bold;
-}
-.inputStyle{
-  border-radius: 10px 0px 0 10px;
-  border: 1px solid black;
-}
-.marginBottom{
-margin-bottom: 5px !important;;
-}
-table, th, td {
-  border:2px solid black;
-}
-.mat-mini-fab.mat-accent {
-  background-color: #FFBC01;
-}
-table{
-  position: relative;
-  border: 1px solid black;
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
   text-align: center;
 }
-#motion-effect  tr {
-  transition-duration: 0.3s;
+
+th {
+  background-color: #FFBC01;
+  color: white;
 }
-#motion-effect tr:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+
+tr:hover {
+  background-color: #f1f1f1;
 }
-#motion-effect  tr:hover th {
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
-}
-.animations-example  td {
-  animation: jumping-bars 3s linear infinite;
-}
-.animations-example tr:nth-of-type(even) td {
-  animation-delay: 300ms;
-}
-@keyframes jumping-bars {
-  0% { transform: translateY(   0px ); }
-  2% { transform: translateY( -10px ); }
-  4% { transform: translateY(   0px ); }
-}
-.socialBTN{
-    width: 80%;
-    height: 45%;
-    background-color: #0d6efd;
-    position: relative;
-    border: none;
-    color: white;
-}
-.btnContainer{
+
+/* ===== Buttons ===== */
+.socialBTN {
   width: 100%;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* align-content: center; */
-    justify-content: space-around;
-    font-size: 2.5em;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1.1em;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
 }
-.plus{
-      font-size: 3em;
-    vertical-align: middle;
+
+.socialBTN:hover {
+  background-color: #004aad;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .dashboard-content {
+    flex-direction: column;
+  }
+  .right-sidebar, .middle-content, .left-sidebar {
+    max-width: 100%;
+  }
+}
+
+  .full-width-button {
+      margin-top: 10px;
+
+      width:100%;
+      padding: 15px 20px;
+      background-color: #0097FF;
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      font-size: 18px;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .full-width-button:hover {
+      background-color: #222;
+    }
+
+    @media (max-width: 600px) {
+      .full-width-button {
+        width: 100%;
+        margin: 0 16px;
+        font-size: 16px;
+        padding: 14px;
+      }
+    }
+
+::ng-deep .custom-autocomplete-panel {
+  z-index: 1060 !important;
+}
+
+::ng-deep .mat-autocomplete-panel {
+  z-index: 1060 !important;
+}
+
+.modal-body {
+  overflow: visible !important;
+}
+
+.modal-content {
+  overflow: visible !important;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.selected-users {
+  margin-top: 10px;
+}
+
+mat-chip {
+  margin: 4px;
+}
+
+/* Ensure autocomplete appears above modal */
+::ng-deep .cdk-overlay-container {
+  z-index: 1055 !important;
+}
+
+/* Package Table */
+.package-table {
+  margin-bottom: 30px;
+}
+
+/* Meetings Grid */
+.meetings-title {
+  color: #333;
+  margin: 20px 0;
+  font-size: 1.5em;
+  text-align: right;
+}
+
+.meetings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.meeting-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.meeting-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.meeting-header {
+  margin-bottom: 15px;
+}
+
+.meeting-header h4 {
+  color: #333;
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+}
+
+.meeting-date {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.meeting-date mat-icon {
+  font-size: 18px;
+  margin-left: 5px;
+  color: #FFBC01;
+}
+
+.meeting-content {
+  margin-bottom: 15px;
+}
+
+.meeting-info {
+  margin-bottom: 15px;
+}
+
+.teacher-name {
+  display: flex;
+  align-items: center;
+  margin: 0 0 10px 0;
+  color: #555;
+}
+
+.teacher-name mat-icon {
+  font-size: 18px;
+  margin-left: 5px;
+  color: #0097FF;
+}
+
+.meeting-link {
+  display: flex;
+  align-items: center;
+  color: #0097FF;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.meeting-link mat-icon {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.meeting-link:hover {
+  text-decoration: underline;
+}
+
+/* Participants Section */
+.participants {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.participants-images {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.participants-images img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-left: -10px;
+  object-fit: cover;
+}
+
+.participants-images img:first-child {
+  margin-left: 0;
+}
+
+.participants-count {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.meeting-actions {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .meetings-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .meeting-card {
+    margin-bottom: 15px;
+  }
 }

@@ -1,0 +1,42 @@
+  <div style="text-align: center;margin-top: 150px;color: black;">
+  <h1 style="font-size: 3em;font-family: Almarai, sans-serif;font-weight: 700;">انشاء فصل</h1>
+<div dir="rtl" class="form-container mat-elevation-z5">
+      <img class="signOptionImg" src="assets/images/dashboard_Background.png" alt="">
+      <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+     <div class="row" >
+    <mat-form-field appearance="outline" style="text-align: start;">
+      <input matInput placeholder="الصف" formControlName="className" />
+      <mat-error *ngIf="className?.errors?.['required']">
+        من فضلك ادخل الصف 
+      </mat-error>
+    </mat-form-field>
+     </div>
+     <div class="row" >
+      <mat-form-field appearance="outline"  style="text-align: start;">
+        <input matInput placeholder="المرحلة" formControlName="stage" />
+        <mat-error *ngIf="stage?.errors?.['required']">
+          من فضلك ادخل المرحلة  
+        </mat-error>
+      </mat-form-field>
+      </div>
+      <div class="row" >
+    <mat-form-field appearance="outline" style="text-align: start;">
+  <mat-label>اختار فصل (الزامي)</mat-label>
+  <select formControlName="chapter" matNativeControl required>
+    <option value="GK6BCbHeLSADLYU1kApD">فصل اللغة العربية</option>
+    <option value="AwXgsdAVanW4ox0eMNKH">فصل الدراسات الأجتماعية</option>
+    <option value="OZWiz7mmr5svoHAlEpLJ">فصل الرياضيات</option>
+    <option value="gyCa6u6hDXM5fesn0wQm">فصل تكنولوجيا المعلومات</option>
+    <option value="8DsJWpyWOiOwFfgrxnmj"> فصل العلوم </option>
+    <option value="Msum5fitW5QQWnMP9FXR">فصل اللغة الأنجليزية </option>
+  </select>
+  <mat-error *ngIf="chapter?.errors?.['required']"> من فضلك ادخل المادة </mat-error>   
+    </mat-form-field>
+         </div>
+       <div class="center margin-top">
+      <button type="submit" mat-raised-button class="lognBtn">انشاء  </button>
+    </div>
+      </form>
+
+
+</div>

@@ -1,190 +1,235 @@
-<!-- <div
-  class="form-container mat-elevation-z5 text-center"
-  *ngIf="user$ | async as user"
->
-  <h1>Update Profile</h1>
-  <div class="profile-image">
-    <img
-      width="120"
-      height="120"
-      class="margin-top mat-elevation-z1"
-      [src]="user.photoURL ?? '/assets/images/image-placeholder.png'"
-    />
-    <button mat-mini-fab (click)="inputField.click()">
-      <mat-icon>edit</mat-icon>
-    </button>
+<div class="dashboard" *ngIf="user$ | async as user">
+  <!-- ✅ Header -->
+  <div class="dashboard-header">
+    لوحة التحكم - {{ user.displayName }}
   </div>
-  <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
 
-  <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
-    <div class="row">
-      <mat-form-field>
-        <input
-          type="text"
-          matInput
-          formControlName="firstName"
-          placeholder="First Name"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          type="text"
-          matInput
-          formControlName="lastName"
-          placeholder="Last Name"
-        />
-      </mat-form-field>
-    </div>
+  <!-- ✅ Main Content -->
+  <div class="dashboard-content">
 
-    <div class="row">
-      <mat-form-field>
-        <input
-          type="text"
-          matInput
-          formControlName="displayName"
-          placeholder="Display Name"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          type="number"
-          matInput
-          formControlName="phone"
-          placeholder="Phone"
-        />
-      </mat-form-field>
-    </div>
-    <mat-form-field>
-      <input
-        type="text"
-        matInput
-        formControlName="address"
-        placeholder="Address"
-      />
-    </mat-form-field>
-
-    <button type="submit" class="margin-top" mat-raised-button color="primary">
-      Save
-    </button>
-  </form>
-</div> -->
-
-
-
-
-
-<div *ngIf="user$ | async as user">
-  <img *ngIf="user?.userCategory=='3'" class="signOptionImg" src="assets/images/dashboard_Background.png" alt="">
-  <img *ngIf="user?.userCategory=='1' || user?.userCategory=='2' || user?.userCategory=='4'" class="signOptionImg" src="assets/images/signOption.png" alt="">
-
-<div style="display: flex
-  ;
-      flex-direction: row;
-      justify-content: space-around;">
-      <div style="    width: 50%;
-  padding: 15px;margin-top: 15px;">
-<h1 style="padding-top: 50px;">{{user?.displayName}}</h1>
-<h5>{{userCat}}</h5>
-<h6>البيانات :</h6>
-
-<div class="input-group mb-3 dirLTR marginBottom">
-  <input type="text" class="form-control dirRTL inputStyle" value="{{user?.phone}}" placeholder="رقم الهاتف" aria-label="Username" aria-describedby="basic-addon1" readonly>
-  <span class="input-group-text inputStyleSpan" id="basic-addon1">رقم الهاتف</span>
+    <!-- ✅ 1. Right Sidebar - بيانات وصورة -->
+    <div class="dashboard-section right-sidebar">
+      <div class="profile-image">
+        <img [src]="user.photoURL ?? 'assets/images/image-placeholder.png'" width="120" height="120" />
+         <div class="upload-text" (click)="inputField.click()">رفع صورة</div>
 </div>
-<div class="input-group mb-3 dirLTR marginBottom">
-  <input type="text" class="form-control dirRTL inputStyle" value="{{user?.email}}" placeholder="البريد الالكتروني" aria-label="Username" aria-describedby="basic-addon1" readonly>
-  <span class="input-group-text inputStyleSpan" >البريد الالكتروني</span>
-</div>
-<div *ngIf="user?.userCategory=='1' || user?.userCategory=='2' || user?.userCategory=='3'" class="input-group mb-3 dirLTR marginBottom">
-  <input type="text" class="form-control dirRTL inputStyle" value="{{user?.className}}" placeholder="الصف" aria-label="Username" aria-describedby="basic-addon1" readonly>
-  <span class="input-group-text inputStyleSpan" >الصف</span>
-</div>
-<div *ngIf="user?.userCategory=='4'" class="input-group mb-3 dirLTR marginBottom">
-  <input type="text" class="form-control dirRTL inputStyle" value="{{user?.jobLevel}}" placeholder="المرحلة" aria-label="Username" aria-describedby="basic-addon1" readonly>
-  <span class="input-group-text inputStyleSpan" >المرحلة</span>
-</div>
-<div class="input-group mb-3 dirLTR marginBottom">
-  <input type="text" class="form-control dirRTL inputStyle" value="{{user?.paymentType}}" placeholder="طريقة الدفع" aria-label="Recipient's username" aria-describedby="basic-addon2">
-  <span class="input-group-text inputStyleSpan" id="basic-addon2">طريقة الدفع</span>
-</div>
-
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">اسم الباقة</th>
-      <th scope="col">تاريخ البداية</th>
-      <th scope="col">تاريخ الانتهاء</th>
-      <th scope="col">نوع الباقة</th>
-    </tr>
-    <tr>
-      <td scope="col">{{packages?.name}}</td>
-      <td scope="col">{{user?.packageStart}}</td>
-      <td scope="col">{{user?.packageEndDate}}</td>
-      <td scope="col">{{packages?.type}}</td>
-    </tr>
-  </thead>
-</table>
-
-
-
-</div>
-<div style="width: 40%;
-  text-align: center;">
-  <div class="profile-image">
-    <img
-      width="200"
-      height="200"
-      class="margin-top mat-elevation-z1"
-      [src]="user.photoURL ?? 'assets/images/image-placeholder.png'"
-    />
-    <button mat-mini-fab (click)="inputField.click()">
-      <mat-icon>edit</mat-icon>
-    </button>
-  </div>
   <input #inputField hidden type="file" (change)="uploadFile($event,user)" />
-  <div class="form-container mat-elevation-z5" style="margin-top: 30px;max-width: 100% !important;">
-  <table id="motion-effect" class="animations-example charts-css column multiple datasets-spacing-10" style="border:none;height: auto;">
+      <h3 style="text-align: center;">{{ user.displayName }}</h3>
+      <p style="text-align: center;">{{ userCat }}</p>
+      <div dir="ltr" class="input-group mb-3 dirLTR marginBottom">
+        <input dir="rtl" type="text" class="form-control dirRTL inputStyle" [value]="user?.email" readonly>
+        <span class="inputStyleSpan input-group-text">البريد الإلكتروني</span>
+      </div>
 
-    <caption> المؤشرات </caption>
-  
-    <tbody>
-      <tr>
-        <td> 50% </td>
-      </tr>
-      <tr>
-        <td> 0% </td>
-      </tr>
-      <tr>
-        <td> 0% </td>
-      </tr>
-      <tr>
-        <td> 0% </td>
-      </tr>
-      <tr>
-        <td> 0% </td>
-      </tr>
-      <tr>
-        <td> 0% </td>
-      </tr>
-      <tr>
-        <td> 0% </td>
-      </tr>
-       <tr>
-        <td> 0% </td>
-      </tr>
-    </tbody>
-  
-  </table>
-  
-</div>
-<div class="btnContainer">
-<button *ngIf="user?.userCategory=='3'" routerLink="/socialRegister" class="socialBTN">إنشاء مجتمع  <span class="plus">+</span></button>
-<button *ngIf="user?.userCategory=='3'" routerLink="/liveVideo" class="socialBTN">بدء اجتماع <span class="plus">+</span></button>
-</div>
-</div>
+      <!-- <div dir="ltr" *ngIf="user?.userCategory !== '4'" class="input-group mb-3 dirLTR marginBottom">
+        <input dir="rtl" type="text" class="form-control dirRTL inputStyle" [value]="user?.className" readonly>
+        <span class="inputStyleSpan input-group-text">الصف</span>
+      </div> -->
 
+      <div dir="ltr" class="input-group mb-3 dirLTR marginBottom">
+        <input dir="rtl" type="text" class="form-control dirRTL inputStyle" value="paymob" readonly>
+        <span class="inputStyleSpan input-group-text">طريقة الدفع</span>
+      </div>
+        <table class="package-table">
+        <thead>
+          <tr>
+            <th>اسم الباقة</th>
+            <th>البداية</th>
+            <th>النوع</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ packages?.name }}</td>
+            <td>{{ user?.packageStart }}</td>
+            <td>{{ packages?.type }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    
+
+    <!-- ✅ 2. Middle Content - رسم بياني -->
+    <div class="dashboard-section middle-content">
+    <div *ngIf="userDataLoaded">
+  <app-chart
+    [chartData]="chartData" 
+    [chartLabels]="chartLabels">
+  </app-chart>
 </div>
+    </div>
+
+    <!-- ✅ 3. Left Sidebar - الاجتماعات -->
+    <div class="dashboard-section left-sidebar">
+      <!-- Package Info Table -->
+    
+      <!-- Meetings Grid -->
+      <h3 class="meetings-title" style="color: #333;
+    margin: 0px 20px 0px 20px;
+    font-size: 1.5em;
+    text-align: right;
+    width: 20%;
+    display: inline;">الاجتماعات القادمة</h3><mat-icon *ngIf="user?.userCategory === '3'" data-bs-toggle="modal" data-bs-target="#exampleModal" style="    font-size: 30px;cursor: pointer;
+    color: #ffc107;">add</mat-icon>
+      <div class="meetings-grid">
+        <div *ngFor="let meeting of meetingLinks" class="meeting-card">
+          <div class="meeting-header">
+            <h4>{{ meeting.MeetingName }}</h4>
+            <span class="meeting-date">
+              <mat-icon>event</mat-icon>
+              {{ meeting.MeetingDate }}
+            </span>
+          </div>
+          
+          <div class="meeting-content">
+            <div class="meeting-info">
+              <p class="teacher-name">
+                <mat-icon>person</mat-icon>
+                {{ meeting.TeacherName }}
+              </p>
+              <a [href]="meeting.MeetingLink" target="_blank" class="meeting-link">
+                <mat-icon>video_call</mat-icon>
+                رابط الاجتماع
+              </a>
+            </div>
+            
+            <!-- Participants Images -->
+            <div class="participants">
+              <div class="participants-images">
+                <img *ngFor="let participant of meeting.participants" 
+                     [src]="participant.photoURL || 'assets/images/image-placeholder.png'"
+                     [alt]="participant.displayName"
+                     [matTooltip]="participant.displayName">
+              </div>
+              <span class="participants-count">{{ meeting.participants?.length || 0 }} مشارك</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="meeting-actions" *ngIf="user?.userCategory === '3'">
+            <button mat-icon-button color="warn" (click)="deleteMeeting(meeting.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Meeting Button -->
+      <div class="btnContainer">
+        <button disabled *ngIf="user?.userCategory === '3'" routerLink="/socialRegister" class="full-width-button">
+          إنشاء مجتمع <span class="plus">+</span>
+        </button>
+        <button *ngIf="user?.userCategory === '3'" (click)="goToLink('https://zoom.us/meeting/schedule')" class="full-width-button">
+          بدء اجتماع <span class="plus">+</span>
+        </button>
+        <!-- <button *ngIf="user?.userCategory === '3'" data-bs-toggle="modal" data-bs-target="#exampleModal" class="full-width-button">
+          تنظيم اجتماع <span class="plus">+</span>
+        </button> -->
+        <button *ngIf="user?.userCategory === '3'" routerLink="/createLesson" class="full-width-button">
+          إنشاء فصل <span class="plus">+</span>
+        </button>
+        <button routerLink="/chat" class="full-width-button">	<mat-icon> message</mat-icon>
+          المحادثات <span class="plus"></span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 style="width: 90%;" class="modal-title">تنظيم اجتماع جديد</h5>
+        <button dir="ltr" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeModal></button>
+      </div>
+      <div class="modal-body">
+        <form dir="rtl" [formGroup]="scheduleForm" (ngSubmit)="submit()">
+          <!-- User Selection -->
+          <div class="row mb-3">
+            <mat-form-field appearance="outline" class="w-100" style="z-index: 1050;">
+              <mat-label>بحث عن الطلاب</mat-label>
+              <input matInput 
+                [formControl]="searchCtrl" 
+                [matAutocomplete]="auto" 
+                placeholder="اكتب اسم الطالب">
+              <mat-autocomplete #auto="matAutocomplete" 
+                (optionSelected)="selectUser($event.option.value)"
+                [class]="'custom-autocomplete-panel'">
+                <mat-option *ngFor="let user of filteredUsers$ | async" [value]="user">
+                  {{ user.displayName }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <!-- Selected Users Chips -->
+            <div class="selected-users mt-2">
+              <mat-chip-list>
+                <mat-chip *ngFor="let user of selectedUsers" [removable]="true" (removed)="removeUser(user)">
+                  {{ user.displayName }}
+                  <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+              </mat-chip-list>
+            </div>
+          </div>
+
+          <!-- Meeting Name -->
+          <div class="row mb-3">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>اسم الاجتماع</mat-label>
+              <input matInput formControlName="MeetingName" placeholder="اسم الاجتماع">
+              <mat-error *ngIf="scheduleForm.get('MeetingName')?.errors?.['required']">
+                من فضلك ادخل اسم الاجتماع
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!-- Meeting Date and Time -->
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>تاريخ الاجتماع</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="MeetingDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="scheduleForm.get('MeetingDate')?.errors?.['required']">
+                  من فضلك اختر تاريخ الاجتماع
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>وقت الاجتماع</mat-label>
+                <input matInput type="time" formControlName="MeetingTime">
+                <mat-error *ngIf="scheduleForm.get('MeetingTime')?.errors?.['required']">
+                  من فضلك اختر وقت الاجتماع
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <!-- Meeting Link -->
+          <div class="row mb-3">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>رابط الاجتماع</mat-label>
+              <input matInput formControlName="MeetingLink" placeholder="رابط الاجتماع">
+              <mat-error *ngIf="scheduleForm.get('MeetingLink')?.errors?.['required']">
+                من فضلك ادخل رابط الاجتماع
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-flex justify-content-end">
+            <button type="submit" mat-raised-button color="primary" [disabled]="!scheduleForm.valid || selectedUsers.length === 0">
+              إنشاء الاجتماع
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 

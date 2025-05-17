@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -35,7 +35,17 @@ import { ClassDetailsComponent } from './components/class-details/class-details.
 import { ClassVideoComponent } from './components/class-video/class-video.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MainservicesComponent } from './components/mainservices/mainservices.component';
-
+import { DynaminClassComponent } from './components/dynamin-class/dynamin-class.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatAutocomplete, MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatNativeDateModule } from '@angular/material/core';
+import { CreateLessonComponent } from './components/create-lesson/create-lesson.component';
+import { ChartComponent } from './components/chart/chart.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { AuthGuardModule } from '@angular/fire/auth-guard';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +66,10 @@ import { MainservicesComponent } from './components/mainservices/mainservices.co
     ClassVideoComponent,
     NotFoundComponent,
     MainservicesComponent,
+    DynaminClassComponent,
+    CreateLessonComponent,
+    ChartComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -68,15 +82,23 @@ import { MainservicesComponent } from './components/mainservices/mainservices.co
     MatInputModule,
     ReactiveFormsModule,
     MatRadioModule,
+    MatDatepickerModule,
+    MatChipsModule,
+    MatTooltipModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     HotToastModule.forRoot(),
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    MatNativeDateModule,
+    FormsModule,
+    MatAutocompleteModule,
+     AngularFireAuthModule,
+    AuthGuardModule,
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
