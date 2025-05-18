@@ -89,3 +89,50 @@ button.mat-raised-button {
 button.mat-raised-button:hover {
     background-color: #5a6268;
 }
+
+/* تحسين التنسيق للأحجام الصغيرة */
+@media screen and (max-width: 768px) {
+    /* عرض الباقات في صفوف صغيرة */
+    .package {
+        width: 45%; /* جعل العرض 45% في الشاشات الصغيرة */
+        margin: 10px 0; /* تقليل المسافة بين الباقات */
+    }
+
+    /* تعديل النص */
+    .package h1 {
+        font-size: 1.5em; /* تقليل حجم الخط */
+    }
+
+    .package ul li {
+        font-size: 1em; /* تقليل حجم النص قليلاً */
+    }
+
+    /* تحسين تنسيق الزر */
+    .lognBtn {
+        font-size: 1em; /* تقليل حجم النص */
+        padding: 8px 15px; /* تقليل حجم الزر */
+    }
+}
+
+/* تحسين التنسيق للأحجام الأصغر */
+@media screen and (max-width: 480px) {
+    /* عرض الباقات في صفوف واحدة */
+    .package {
+        width: 100%; /* عرض الباقة 100% في الشاشات الصغيرة جداً */
+        margin: 10px 0; /* تقليل المسافة بين الباقات */
+        height: auto; /* تعديل الارتفاع ليكون مرن */
+    }
+
+    .package h1 {
+        font-size: 1.3em; /* تقليل حجم الخط بشكل أكبر */
+    }
+
+    .package ul li {
+        font-size: 0.9em; /* تقليل حجم النص */
+    }
+
+    .lognBtn {
+        font-size: 0.9em; /* تقليل حجم النص */
+        padding: 6px 12px; /* تقليل حجم الزر */
+    }
+}

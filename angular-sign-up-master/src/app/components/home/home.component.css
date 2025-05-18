@@ -138,3 +138,103 @@ mat-toolbar {
     font-weight: 700;
     padding: 20px;
 }
+/* 📱 Responsive Fixes */
+@media (max-width: 992px) {
+
+  /* ✅ Navbar & Logo */
+  .HeaderContainer {
+    padding: 10px;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .logoContainer {
+    position: static;
+    background-color: transparent;
+    height: auto;
+    width: auto;
+    padding-top: 0;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .logoImg {
+    width: 70px;
+    height: auto;
+  }
+
+  .navbar-toggler {
+    left: auto;
+    right: 10px;
+  }
+
+  .ulNavItems {
+    width: 100%;
+    padding-right: 0;
+    text-align: center;
+    font-size: 1.1em;
+  }
+
+  /* ✅ Welcome Card */
+  .card-container {
+    width: 95%;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+
+  .card {
+    margin: 20px 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .card-body-with-img {
+    padding: 15px;
+  }
+
+  .card-body-with-img h1 {
+    font-size: 1.2rem;
+  }
+
+  /* ✅ Horizontal Cards */
+  .cardin {
+    margin: 20px 0 !important;
+    width: 90% !important;
+  }
+
+  /* ✅ Sections with Image & Text */
+  [style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  [style*="width: 45%"] {
+    width: 90% !important;
+    margin-bottom: 20px;
+  }
+
+  /* ✅ Big Buttons */
+  .btn1 {
+    width: 90%;
+    font-size: 1.3rem;
+    padding: 15px;
+    height: auto;
+  }
+
+  /* ✅ Search adjustments if used */
+  .searchInput {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .searchButton {
+    width: 100%;
+    position: relative;
+    left: auto;
+  }
+
+  .content {
+    margin-top: 130px;
+  }
+}

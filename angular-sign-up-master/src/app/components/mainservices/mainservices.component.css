@@ -1,5 +1,5 @@
-h1{
-        width: 40%;
+h1 {
+    width: 40%;
     background-color: #0097FF;
     margin: 0 auto;
     height: 70px;
@@ -9,4 +9,23 @@ h1{
     vertical-align: middle;
     font-weight: 700;
     padding: 20px;
+    text-align: center;
+}
+
+/* عند الشاشات الصغيرة */
+@media screen and (max-width: 768px) {
+    h1 {
+        width: 80%; /* زيادة العرض ليملأ المساحة المتاحة */
+        font-size: 2.5em; /* تقليل حجم الخط */
+        height: 60px; /* تقليل ارتفاع العنوان */
+    }
+}
+
+/* عند الشاشات الأصغر مثل الهواتف */
+@media screen and (max-width: 480px) {
+    h1 {
+        width: 90%; /* زيادة العرض ليقترب أكثر من الحافة */
+        font-size: 2em; /* تقليل حجم الخط بشكل أكبر */
+        height: 50px; /* تقليل الارتفاع أكثر */
+    }
 }

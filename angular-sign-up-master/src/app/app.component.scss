@@ -1,3 +1,8 @@
+// :root {
+//   $main-yellow: #FFBC01;
+// $main-gray: #666666;
+// }
+
 mat-toolbar {
   justify-content: space-between;
 }
@@ -10,68 +15,170 @@ mat-toolbar {
   border-radius: 100%;
   margin-right: 8px;
 }
-.RegisterNowBtn{
-    background-color: #FFBC01 ;
-    border: #FFBC01;
-    width: 113px;
-    height: 38px;
-}
-.HeaderContainer{
-    height: 100px;
-    background-color: #E4E2E2 !important;
-    opacity: 100%;
-    padding: 0 92px; 
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 111;
 
-}
-.logoImg{
-    width: 90px;
-    height: 79px;
-}
-.logoContainer{
-    height: 158px;
-    position: absolute;
-    top: 0;
-    background-color: aliceblue;
-    margin: 0;
-    border-radius: 0 0 50px 50px;
-    z-index: 1;
-}
-.logoContainer{
-    height: 158px;
-    position: absolute;
-    top: 0;
-    background-color: aliceblue;
-    margin: 0;
-    border-radius: 0 0 50px 50px;
-    width: 121px;
-    padding-top: 30px;
-}
-.notiIcon{
-    font-size: 32px;
-    color: #FFBC01;
-    height: 32px;
-    width: 32px;
-    
-}
-.ulNavItems{
-    padding-right: 150px;
-    width: 70%;
-    font-size: 1.3em;
-}
-.nav-link{
-    color: #666666 !important;
+$main-yellow: #FFBC01;
+$hover-yellow: darken($main-yellow, 10%);
+$white: #ffffff;
 
+.RegisterNowBtn {
+  background-color: $main-yellow;
+  border: none;
+  width: 113px;
+  height: 38px;
+  color: $white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $hover-yellow;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
 }
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-    color: #FFBC01 !important;
-    border-bottom: 1px solid #ffc107;
+
+
+.HeaderContainer {
+  height: 100px;
+  background-color: #E4E2E2 !important;
+  padding: 0 92px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 111;
 }
-.navbar-toggler{
+
+.logoImg {
+  width: 90px;
+  height: 79px;
+}
+
+.logoContainer {
+  height: 158px;
+  position: absolute;
+  top: 0;
+  background-color: aliceblue;
+  margin: 0;
+  border-radius: 0 0 50px 50px;
+  width: 121px;
+  padding-top: 30px;
+  z-index: 1;
+}
+
+.notiIcon {
+  font-size: 32px;
+  color: #FFBC01;
+  height: 32px;
+  width: 32px;
+  margin-left: 15px;
+}
+
+.ulNavItems {
+  padding-right: 150px;
+  width: 70%;
+  font-size: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  font-family: 'Almarai', sans-serif;
+}
+
+.nav-link {
+  color:#666666 !important;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: #FFBC01 !important;
+  border-bottom: 1px solid #ffc107;
+}
+
+.navbar-toggler {
+  position: absolute;
+  right: 10px;
+}
+
+/* ===================== Responsive ===================== */
+
+@media (max-width: 992px) {
+  .HeaderContainer {
+    padding: 0 30px;
+    height: auto;
+  }
+
+  .logoContainer {
+    position: relative;
+    width: 100px;
+    height: auto;
+    padding-top: 10px;
+    border-radius: 0 0 30px 30px;
+  }
+
+  .logoImg {
+    width: 70px;
+    height: auto;
+  }
+
+  .ulNavItems {
+    padding-right: 0;
+    width: 100%;
+    font-size: 1.1em;
+    flex-direction: column;
+  }
+
+  .RegisterNowBtn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .notiIcon {
+    margin: 10px 0;
+  }
+
+  .navbar-toggler {
+    right: 10px;
+    top: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logoImg {
+    width: 50px;
+  }
+
+  .ulNavItems {
+    font-size: 1em;
+  }
+
+  .RegisterNowBtn {
+    font-size: 14px;
+    height: auto;
+    padding: 6px 12px;
+  }
+}
+@media (max-width: 992px) {
+  .logoContainer {
+    position: static;
+    height: auto;
+    padding-top: 0;
+    background-color: transparent;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .logoImg {
+    width: 60px;
+    height: auto;
+  }
+
+  .navbar-toggler {
     position: absolute;
-    left: 10px;
+    top: 10px;
+    right: 10px;
+  }
 }
