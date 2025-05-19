@@ -1,0 +1,108 @@
+<!-- <div class="flex justify-center align-items-center ">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="  max-w-md mx-auto ">
+  <label class="block">
+    <span class="text-gray-700">Select Society</span>
+    <select formControlName="socialID" class="w-full p-2 mt-1 border rounded">
+      <option value="">-- Select --</option>
+      <option *ngFor="let soc of societies" [value]="soc.socialID">
+        {{ soc.socialName || soc.socialID }}
+      </option>
+    </select>
+  </label>
+
+  <label class="block" *ngIf="students.length">
+    <span class="text-gray-700">Select Student</span>
+    <select formControlName="studentUID" class="w-full p-2 mt-1 border rounded">
+      <option value="">-- Select --</option>
+      <option *ngFor="let stu of students" [value]="stu.uid">
+        {{ stu.firstName }} {{ stu.lastName }}
+      </option>
+    </select>
+  </label>
+
+  <p *ngIf="!students.length && form.get('socialID')?.value && !loadingStudents" class="text-red-600">
+    No students available to enroll.
+  </p>
+
+  <button
+    type="submit"
+    [disabled]="form.invalid"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+  >
+    Add Student
+  </button>
+</form>
+
+</div> -->
+
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Enroll Student in Society</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+  <label for="roleFilter" class="form-label">Filter by Role</label>
+  <select class="form-select" formControlName="selectedRole"  required>
+    <option value="">-- Select Role --</option>
+    <option *ngFor="let role of roles" [value]="role">{{ userRole(role) }}</option>
+  </select>
+</div>
+        <!-- Society Dropdown -->
+        <div class="mb-3">
+          <label for="societySelect" class="form-label">Select Society</label>
+          <select
+            required
+            id="societySelect"
+            formControlName="socialId"
+            class="form-select"
+          >
+            <option value="">-- Select --</option>
+            <option *ngFor="let soc of societies" [value]="soc.socialID">
+              {{ soc.socialName || soc.socialID }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Student Dropdown -->
+        <div class="mb-3" *ngIf="form.get('socialId')?.value &&form.get('selectedRole')?.value">
+          <label for="studentSelect" class="form-label">Select Student</label>
+          <select
+            required
+            id="studentSelect"
+            formControlName="userId"
+            class="form-select text-dark"
+            [disabled]="users===undefined || users.length === 0"
+          >
+            <option value="">-- Select --</option>
+            <option class="text-dark" *ngFor="let stu of users" [value]="stu.uid">
+             {{(stu.firstName && stu.lastName) ? stu.firstName + ' ' + stu.lastName : stu.email?stu.email:stu.uid}}
+            </option>
+          </select>
+        </div>
+
+        <!-- Empty / Loading state -->
+        <div *ngIf="users===undefined" class="mb-3 text-muted">
+          <div class="spinner-border spinner-border-sm text-primary me-2" role="status"></div>
+          Loading students...
+        </div>
+        <div *ngIf="!(users===undefined)&& form.get('socialId')?.value && users.length === 0" class="text-muted mb-3">
+          No available students to enroll.
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="btn btn-success"
+
+          [disabled]="form.invalid || (users===undefined) || users.length === 0"
+        >
+          Add Student
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+

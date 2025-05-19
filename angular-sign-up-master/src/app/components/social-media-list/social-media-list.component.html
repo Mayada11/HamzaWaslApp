@@ -1,0 +1,28 @@
+
+
+<div class="main" *ngIf="societies === undefined" >
+<div class="d-flex justify-content-center">
+  <div class="spinner-border my-5" role="status">
+  </div>
+</div>
+</div>
+
+<div class="main" *ngIf="societies&&societies.length === 0">
+  لم تقم بأنشاء اى مجتمع بعد
+  <a routerLink="/socialRegister">انشاء مجتمع</a>
+</div>
+
+<ng-template ngIf="societies&&societies.length > 0">
+<div *ngIf="user&&(isTeacher(user.userCategory!))">
+<div mat-raised-button class="btn btn-light lognBtn" routerLink="/socialRegister">انشاء مجتمع</div>
+<div class="btn btn-primary"  routerLink="/studentSocietyEnroll">اضافه طلاب المجتمع</div>
+</div>
+<div class=" container-lg flex flex-wrap gap-lg-5  main" *ngFor="let society of societies">
+
+    <app-social-media-tile [social]="society"></app-social-media-tile>
+    <br>
+</div>
+</ng-template>
+
+
+
