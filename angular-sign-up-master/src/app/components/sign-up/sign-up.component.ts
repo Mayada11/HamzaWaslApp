@@ -181,12 +181,8 @@ export class SignUpComponent implements OnInit {
       .signUp(email, password)
       .pipe(
         switchMap(({ user: { uid } }) =>
-<<<<<<< HEAD
-          
-          this.usersService.addUser({ uid, email, displayName: name,userCategory:userCat ,NationalId:NationalId,city:city,school:school,type:type,className:className,stage:stage,article:article,packageID:packageID,packageStart:packageStart})
-=======
           this.usersService.addUser({ uid,  email, displayName: name,userCategory:<UserCat>userCat ,NationalId:NationalId,city:city,school:school,type:type,className:className,stage:stage,article:article,packageID:packageID,packageStart:packageStart})
->>>>>>> 0935043b948e52c947d6fae3822e1480e6c7d343
+
         ),
         this.toast.observe({
           success: 'مبروك لق قمت بالتسجيل في المنصة',
