@@ -11,10 +11,11 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { PackageService } from 'src/app/services/package.service';
-import { UsersService } from 'src/app/services/users.service';
+
 import { HotToastService } from '@ngneat/hot-toast';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { switchMap, tap } from 'rxjs';
+import { SocialService } from 'src/app/services/social.service';
 @UntilDestroy()
 @Component({
   selector: 'app-social-register',
@@ -38,7 +39,7 @@ export class SocialRegisterComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private toast: HotToastService,
-    private usersService: UsersService,
+    private usersService: SocialService,
     private fb: NonNullableFormBuilder,
     private route: ActivatedRoute,
     private packService: PackageService,
@@ -68,24 +69,26 @@ export class SocialRegisterComponent implements OnInit {
     this.usersService.currentUserProfile$
       .subscribe((user) => {
         this.uid = user?.uid as string
-        this.usersService.addSociety({ socialID: this.socialID, creator: user?.displayName, socialName: name, socialclass: className, socialStage: stage, socialSubject: article, uid: this.uid }).pipe(
-        ).subscribe((ele) => {
-          this.usersService.updateSociety({ socialID: ele['id'] }).pipe(
+        this.usersService.addSociety({// socialID: this.socialID,
+          creator: user?.displayName!, socialName: name, socialclass: className, socialStage: stage, socialSubject: article, uid: this.uid}).pipe(
+        )
+        //.subscribe((ele) => {this.usersService.updateSociety({ socialID: ele.socialID })
+          .pipe(
             this.toast.observe({
               success: 'تم انشاء المجتمع بنجاح',
               loading: 'جاري الانشاء .....',
               error: ({ message }) => `${message}`,
             })
           ).subscribe(() => {
-            localStorage.setItem("societyID",ele['id']);
-            this.router.navigate(['/socialMedia']);
+            //localStorage.setItem("societyID",ele.socialID);
+            this.router.navigate(['/socialMediaList']);
           });
 
         });
 
-      })
+      }
   }
 
 
 
-}
+

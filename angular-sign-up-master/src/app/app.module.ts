@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -35,6 +35,11 @@ import { ClassDetailsComponent } from './components/class-details/class-details.
 import { ClassVideoComponent } from './components/class-video/class-video.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MainservicesComponent } from './components/mainservices/mainservices.component';
+import { SocialMediaListComponent } from './components/social-media-list/social-media-list.component';
+import { SocialMediaTileComponent } from './components/social-media-tile/social-media-tile.component';
+import { StudentSocietyEnrollComponent } from './components/student-society-enroll/student-society-enroll.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
@@ -56,9 +61,15 @@ import { MainservicesComponent } from './components/mainservices/mainservices.co
     ClassVideoComponent,
     NotFoundComponent,
     MainservicesComponent,
+    SocialMediaListComponent,
+    SocialMediaTileComponent,
+    StudentSocietyEnrollComponent,
   ],
   imports: [
+
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -67,6 +78,7 @@ import { MainservicesComponent } from './components/mainservices/mainservices.co
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    FormsModule,
     MatRadioModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

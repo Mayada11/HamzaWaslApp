@@ -22,6 +22,8 @@ import { LiveVideoComponent } from './components/live-video/live-video.component
 import { ClassVideoComponent } from './components/class-video/class-video.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MainservicesComponent } from './components/mainservices/mainservices.component';
+import { SocialMediaListComponent } from './components/social-media-list/social-media-list.component';
+import { StudentSocietyEnrollComponent } from './components/student-society-enroll/student-society-enroll.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -85,9 +87,14 @@ const routes: Routes = [
     component: SocialRegisterComponent,
      ...canActivate(redirectUnauthorizedToLogin),
   },
-   {
-    path: 'socialMedia',
-    component: SocialMediaComponent,
+ {
+    path: 'socialMediaList',
+    component: SocialMediaListComponent,
+     ...canActivate(redirectUnauthorizedToLogin),
+  },
+ {
+    path: 'studentSocietyEnroll',
+    component: StudentSocietyEnrollComponent,
      ...canActivate(redirectUnauthorizedToLogin),
   },
    {
@@ -99,7 +106,15 @@ const routes: Routes = [
     path: 'classVideo',
     component: ClassVideoComponent,
      ...canActivate(redirectUnauthorizedToLogin),
-  },    {path:'**',component:NotFoundComponent}
+  },
+   {
+    path: 'socialMedia/:id',
+    component: SocialMediaComponent,
+    pathMatch:'full',
+     ...canActivate(redirectUnauthorizedToLogin),
+  },
+
+  {path:'**',component:NotFoundComponent}
 
 ];
 
