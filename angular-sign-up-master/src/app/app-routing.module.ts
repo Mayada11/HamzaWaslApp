@@ -31,7 +31,7 @@ import { SocialMediaListComponent } from './components/social-media-list/social-
 import { StudentSocietyEnrollComponent } from './components/student-society-enroll/student-society-enroll.component';
 
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
 const routes: Routes = [

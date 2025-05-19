@@ -1,25 +1,40 @@
-<div class="bg-light-subtle rounded shadow hover:shadow-lg" routerLink="/socialMedia/{{ social.socialID }}" >
+<div
+  class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden cursor-pointer"
+  routerLink="/socialMedia/{{ social.socialID }}"
+>
 
-  <img *ngIf="social.socialBackImg" [src]="social.socialBackImg" alt="Cover" class="w-full" />
+  <img style="width: 100px;
+height: 100px;"
+    *ngIf="social.socialBackImg"
+    [src]="social.socialBackImg"
+    alt="Cover"
+    class="w-full h-36 object-cover"
+  />
+
   <div class="p-4">
-    <div class="flex items-center">
-      <img
+    <div class="flex items-center gap-4 mb-3">
+      <img style="width: 100px;
+height: 100px;"
         *ngIf="social.socialProfileImg"
         [src]="social.socialProfileImg"
         alt="Avatar"
-        class="w-12 h-12 rounded-full mr-4"
+        class="w-14 h-14 rounded-full border-2 border-gray-300"
       />
+
       <div>
-        <h2 class="text-lg font-semibold">{{ social.socialName || 'Untitled' }}</h2>
-        <p class="text-gray-600">{{ social.creator || 'Unknown Creator' }}</p>
+        <h2 class="text-lg font-semibold text-gray-800">
+          {{ social.socialName || 'بدون اسم' }}
+        </h2>
+        <p class="text-sm text-gray-500">
+          {{ social.creator || 'مش معروف' }}
+        </p>
       </div>
     </div>
 
-    <div class="mt-4">
-      <p><strong>Class:</strong> {{ social.socialclass || '-' }}</p>
-      <p><strong>Stage:</strong> {{ social.socialStage || '-' }}</p>
-      <p><strong>Subject:</strong> {{ social.socialSubject || '-' }}</p>
+    <div class="text-sm text-gray-700 space-y-1">
+      <p><span class="font-semibold">الفرقة:</span> {{ social.socialclass || '-' }}</p>
+      <p><span class="font-semibold">المرحلة:</span> {{ social.socialStage || '-' }}</p>
+      <p><span class="font-semibold">المادة:</span> {{ social.socialSubject || '-' }}</p>
     </div>
   </div>
 </div>
-

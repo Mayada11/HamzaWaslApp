@@ -117,8 +117,11 @@
 
       <!-- Add Meeting Button -->
       <div class="btnContainer">
-        <button disabled *ngIf="user?.userCategory === '3'" routerLink="/socialRegister" class="full-width-button">
+        <button *ngIf="user?.userCategory === '3'" routerLink="/socialRegister" class="full-width-button">
           إنشاء مجتمع <span class="plus">+</span>
+        </button>
+        <button routerLink="/socialMediaList" class="full-width-button">
+          المجتمعات
         </button>
         <button *ngIf="user?.userCategory === '3'" (click)="goToLink('https://zoom.us/meeting/schedule')" class="full-width-button">
           بدء اجتماع <span class="plus">+</span>

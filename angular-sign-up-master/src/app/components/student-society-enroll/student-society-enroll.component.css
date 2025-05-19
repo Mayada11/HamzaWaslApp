@@ -1,0 +1,47 @@
+.container {
+  max-width: 700px;
+  margin: auto;
+}
+
+.card {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.card-header {
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(to right, #007bff, #0056b3);
+}
+
+.card-header h5 {
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-select {
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.7rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+.spinner-border {
+  vertical-align: middle;
+}

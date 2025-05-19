@@ -1,12 +1,10 @@
-import { UserCat } from "../components/Enums/usre-cat";
-
 export interface ProfileUser {
   uid: string;
   email?: string;
   firstName?: string;
   lastName?: string;
   displayName?: string;
-  userCategory?:UserCat;
+  userCategory?:string;
   NationalId?:string;
   type?:string;
   city?:string,

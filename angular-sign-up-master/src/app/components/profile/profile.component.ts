@@ -175,11 +175,7 @@ goToLink(url: string){
 }
   uploadFile(event: any, { uid }: ProfileUser) {
     const form = new FormData();
-        const input = event.target as HTMLInputElement;
-    if(!input.files|| input.files.length === 0) return;
-    const file = input.files[0];
-
-    form.append("file",file);
+    form.append("file",event.target.files[0]);
     form.append("api_key", '692369785745284');
     form.append("api_secret", 'gOfP7XJmRMWk31Jn63CnuWc0X1g');
     form.append("upload_preset","hellohello");
@@ -205,18 +201,9 @@ goToLink(url: string){
         console.log(data1);
         var photoURL = data1.url;
         this.usersService.updateUser({
-          uid,
-
-              photoURL
-             }).subscribe({
-               next: () => {
-                this.toast.success('usr Image updated successfully');
-                
-               },
-               error: (err) => {
-                 console.log('error in updating image ',err);
-               },
-             });
+              uid,
+              photoURL,
+             })
 
       });
   }
@@ -229,7 +216,7 @@ goToLink(url: string){
     }
 
     this.usersService
-      .updateUser({uid , ...data })
+      .updateUser({ uid, ...data })
       .pipe(
         this.toast.observe({
           loading: 'Saving profile data...',

@@ -1,19 +1,19 @@
 
 
-<div class="main" *ngIf="societies === undefined" >
+<div class="main" *ngIf="societies === undefined" style="text-align: center;">
 <div class="d-flex justify-content-center">
   <div class="spinner-border my-5" role="status">
   </div>
 </div>
 </div>
 
-<div class="main" *ngIf="societies&&societies.length === 0">
+<div style="text-align: center;" class="main" *ngIf="societies&&societies.length === 0">
   لم تقم بأنشاء اى مجتمع بعد
   <a routerLink="/socialRegister">انشاء مجتمع</a>
 </div>
 
 <ng-template ngIf="societies&&societies.length > 0">
-<div *ngIf="user&&(isTeacher(user.userCategory!))">
+<div *ngIf="user&&(user.userCategory =='3')" style="text-align: center;">
 <div mat-raised-button class="btn btn-light lognBtn" routerLink="/socialRegister">انشاء مجتمع</div>
 <div class="btn btn-primary"  routerLink="/studentSocietyEnroll">اضافه طلاب المجتمع</div>
 </div>

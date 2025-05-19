@@ -7,6 +7,7 @@ import { UserCat, UserRole, UserRoles } from '../Enums/usre-cat';
 import { user } from 'rxfire/auth';
 import { HotToastService } from '@ngneat/hot-toast';
 import { SocialService } from 'src/app/services/social.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-society-enroll',
@@ -25,7 +26,7 @@ form!: FormGroup<{ socialId: FormControl<string|null>; userId: FormControl<strin
   roles : Set<UserRoles> =  new Set<UserRoles>(Object.values(UserRoles))
 
  userRole = (num:UserRoles):UserRole =>UserRole[num]
-  constructor(private fb: FormBuilder, private usersService: SocialService ) {}
+  constructor(private fb: FormBuilder, private usersService: SocialService,private router:Router ) {}
 
 //   onRoleChange() {
 //   if (this.selectedRole) {
@@ -86,6 +87,8 @@ this.users = undefined;
        this.usersService.AddUserToSociety(userId, socialId).subscribe({
          next: (data) => {
            this.toast.success('Student added to society!');
+          this.router.navigate(['/socialMedia',socialId]);
+
            this.form.reset({
              socialId: '',
              userId: '',

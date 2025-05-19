@@ -14,7 +14,6 @@ import { switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { PackageService } from 'src/app/services/package.service';
 import { UsersService } from 'src/app/services/users.service';
-import { UserCat, UsreCat } from '../Enums/usre-cat';
 
 export function passwordsMatchValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -81,9 +80,9 @@ export class SignUpComponent implements OnInit {
           this.signUpForm.controls.gradYear.removeValidators([Validators.required]);
           this.signUpForm.controls.jobLevel.removeValidators([Validators.required]);
           this.signUpForm.controls.gba.removeValidators([Validators.required]);
-          this.signUpForm.controls.specialization.removeValidators([Validators.required]);
-          this.signUpForm.controls.collage.removeValidators([Validators.required]);
-        }
+          this.signUpForm.controls.specialization.removeValidators([Validators.required]);  
+          this.signUpForm.controls.collage.removeValidators([Validators.required]);  
+        }  
 
     });
   }
@@ -152,13 +151,13 @@ export class SignUpComponent implements OnInit {
       const pack = this.packService.getFreePackage(userCat);
           const packageID = pack.id;
           var packageStart = new Date().toJSON().slice(0,10).replace(/-/g,'/');;
-
+          
       this.authService
       .signUp(email, password)
       .pipe(
         switchMap(({ user: { uid } }) =>
-
-          this.usersService.addUser({uid , email, displayName: name,userCategory:<UserCat>userCat ,NationalId:NationalId,city:city,collage:collage,specialization:specialization,gba:gba,type:type,jobLevel:jobLevel,gradYear:gradYear,stage:stage,packageID:packageID,packageStart:packageStart})
+          
+          this.usersService.addUser({ uid, email, displayName: name,userCategory:userCat ,NationalId:NationalId,city:city,collage:collage,specialization:specialization,gba:gba,type:type,jobLevel:jobLevel,gradYear:gradYear,stage:stage,packageID:packageID,packageStart:packageStart})
       ),
         this.toast.observe({
           success: 'مبروك لق قمت بالتسجيل في المنصة',
@@ -173,7 +172,7 @@ export class SignUpComponent implements OnInit {
        if (!this.signUpForm.valid ||!userCat|| !name || !password || !email || !NationalId || !city || !school  || !type  || !stage || !article || !className) {
           return;
         }
-
+        
       const pack = this.packService.getFreePackage(userCat);
       const packageID = pack.id;
       var packageStart = new Date().toJSON().slice(0,10).replace(/-/g,'/');;
@@ -181,8 +180,7 @@ export class SignUpComponent implements OnInit {
       .signUp(email, password)
       .pipe(
         switchMap(({ user: { uid } }) =>
-          this.usersService.addUser({ uid,  email, displayName: name,userCategory:<UserCat>userCat ,NationalId:NationalId,city:city,school:school,type:type,className:className,stage:stage,article:article,packageID:packageID,packageStart:packageStart})
-
+          this.usersService.addUser({ uid, email, displayName: name,userCategory:userCat ,NationalId:NationalId,city:city,school:school,type:type,className:className,stage:stage,article:article,packageID:packageID,packageStart:packageStart})
         ),
         this.toast.observe({
           success: 'مبروك لق قمت بالتسجيل في المنصة',
