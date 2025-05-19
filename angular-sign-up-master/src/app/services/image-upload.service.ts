@@ -15,7 +15,7 @@ import { finalize, from, map, Observable, switchMap } from 'rxjs';
 export class ImageUploadService {
   constructor(private storage: Storage,private httpClient:HttpClient) {}
 
-  uploadImage(form : any): Observable<any> {
+  uploadImage(form : FormData): Observable<any> {
     // const storageRef = ref(this.storage, path);
     // const uploadTask = from(uploadBytes(storageRef, image));
     // return uploadTask.pipe(switchMap((result) => getDownloadURL(result.ref)));

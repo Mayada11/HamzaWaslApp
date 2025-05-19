@@ -36,35 +36,190 @@
     </div>
 </div> -->
 
-<div class="main" *ngIf="soc">
-    <div class="cover">
-  <img 
-      [src]="soc.socialBackImg ?? 'assets/images/image-placeholder.png'" 
-    />
-    <div (click)="inputField.click()" class="overlay">
-    <div  class="text">ارفق صورة غلاف</div>
+
+<div class="main" *ngIf="soc === undefined">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border my-5" role="status"></div>
   </div>
+</div>
+
+<div class="main" *ngIf="soc === null">
+  لم تقم بأنشاء اى مجتمع بعد
+  <a routerLink="/socialRegister">انشاء مجتمع</a>
+</div>
+
+<div class="main" *ngIf="soc!==undefined&&soc!==null">
+  <div class="cover">
+    <img [src]="soc.socialBackImg ?? 'https://img.freepik.com/premium-psd/transparent-background-checkered-wallpaper-photoshop-psd-4k-transparent-empty-grid-layout_691560-11.jpg?w=360'" />
+    <div (click)="inputField.click()" class="overlay">
+      <div class="text">ارفق صورة غلاف</div>
+    </div>
     <!-- <button mat-mini-fab (click)="inputField.click()">
       <mat-icon>edit</mat-icon>
     </button> -->
-      <input #inputField hidden type="file" (change)="uploadFile($event,false)" />
-    </div>
-    <div class="profile">
-      <div style="display: flex;">
-        <div style="position: relative;
-    width: 100%;
-    border: #d0efff solid 3px;">
- <img style="width: 100%;height: 100%;"
-      [src]="soc.socialProfileImg ?? 'assets/images/image-placeholder.png'"
+    <input
+      #inputField
+      hidden
+      type="file"
+      (change)="uploadFile($event, false)"
     />
-     <div (click)="inputField2.click()" class="overlay">
-    <div  class="text">ارفق صورة شخصية</div>
-      <input #inputField2 hidden type="file" (change)="uploadFile($event,true)" />
-    </div>
-    </div>
-    <div style="padding-top: 52%;
-    margin-right: 10px;">
-    <p style="font-weight: bold;
-    font-size: 2em;font-family: 'Almarai';">{{soc.socialName}}</p>    <p style="font-size: 1.5em;font-family: 'Almarai';">{{soc.creator}}</p></div></div>
+  </div>
+  <div class="profile">
+    <div style="display: flex">
+      <div style="position: relative; width: 100%; border: #d0efff solid 3px">
+        <img
+          style="width: 100%; height: 100%"
+          [src]="soc.socialProfileImg ?? 'https://media.istockphoto.com/id/2151669184/vector/vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral.jpg?s=612x612&w=0&k=20&c=UEa7oHoOL30ynvmJzSCIPrwwopJdfqzBs0q69ezQoM8='"
+        />
+        <div (click)="inputField2.click()" class="overlay">
+          <div class="text">ارفق صورة شخصية</div>
+          <input
+            #inputField2
+            hidden
+            type="file"
+            (change)="uploadFile($event, true)"
+          />
+        </div>
+      </div>
 
+      <div *ngIf="soc===undefined" class="d-flex justify-content-center"><div class="spinner-border my-5" role="status"></div>
+      </div>
+      <div *ngIf="soc!==undefined&&soc!==null" class="card shadow-sm text-center mx-auto mt-3" style="max-width: 300px; border-radius: 1rem;">
+  <div class="card-body d-flex flex-column align-items-center">
+    <img
+      [src]="soc.socialProfileImg ?? 'https://media.istockphoto.com/id/2151669184/vector/vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral.jpg?s=612x612&w=0&k=20&c=UEa7oHoOL30ynvmJzSCIPrwwopJdfqzBs0q69ezQoM8='"
+      class="rounded-circle mb-2"
+      alt="Teacher Photo"
+      style="width: 100px; height: 100px; object-fit: cover;"
+    />
+    <h6 class="mb-0">{{ soc.creator }}</h6>
+    <small class="text-muted">معلم</small>
+  </div>
+</div>
+      <!-- <div *ngIf="teacher!==undefined" class="card text-center shadow-sm" style="max-width: 300px; margin: auto;">
+  <div class="card-body">
+    <img
+      [src]="teacher.photoURL"
+      alt="Teacher Photo"
+      class="rounded-circle mb-3"
+      style="width: 100px; height: 100px; object-fit: cover;"
+    />
+    <h5 class="card-title mb-0">{{ teacher.firstName}} {{ teacher.lastName }}</h5>
+    <small class="text-muted">معلم</small>
+  </div>
+</div> -->
+      <div style="padding-top: 52%; margin-right: 10px">
+        <p style="font-weight: bold; font-size: 2em; font-family: 'Almarai'">
+          {{ soc.socialName }}
+        </p>
+        <p style="font-size: 1.5em; font-family: 'Almarai'">
+          {{ soc.creator }}
+        </p>
+      </div>
+    </div>
+
+   
+
+<div *ngIf="students===undefined" class="d-flex justify-content-center"><div class="spinner-border my-5" role="status"></div>
+</div>
+
+ <div *ngIf="students&&students.length === 0" class="text-muted mb-3">
+      No available students .
+      <a routerLink="/studentSocietyEnroll">Go Add Some</a>
+    </div>
+
+<div *ngIf="students&&students.length > 0" class="container mt-4">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+    <div *ngFor="let student of students" class="col">
+      <div class="card h-100 text-center shadow-sm">
+        <div class="card-body d-flex flex-column align-items-center">
+          <img
+            [src]="student.photoURL || 'https://via.placeholder.com/80'"
+            alt="Student"
+            class="rounded-circle mb-2"
+            style="width: 80px; height: 80px; object-fit: cover;"
+          />
+          <h6 class="mb-0">{{ student.firstName }} {{ student.lastName }}</h6>
+          <small class="text-muted">طالب</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- <div
+      *ngIf="students"
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"
+    >
+      <div *ngFor="let student of students" class="col">
+        <div class="card h-100 shadow-sm">
+          <img
+            [src]="student.photoURL || 'https://via.placeholder.com/150'"
+            class="card-img-top object-fit-cover"
+            style="height: 150px"
+            alt="Student Photo"
+          />
+          <div class="card-body text-center">
+            <h6 class="card-title mb-0">
+              {{ student.firstName }} {{ student.lastName }}
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+<div *ngIf="user === undefined" class="d-flex justify-content-center"><div class="spinner-border my-5" role="status"></div>
+</div>
+<div *ngIf="user === null" class="text-muted mb-3">You need to login first . </div>
+<div *ngIf="user !== undefined&&user!==null" >
+<div *ngIf="user&&(isTeacher(user.userCategory!))" class="card my-3">
+  <div class="card-body">
+    <form [formGroup]="postForm" (ngSubmit)="createPost(soc)">
+      <textarea formControlName="content" class="form-control" placeholder="اكتب منشورك هنا..."></textarea>
+      <!-- <label for="postImage">📸</label> -->
+   
+<img *ngIf="imageUrl" [width]="200" [height]="200"  [src]="imageUrl" alt="Image Preview" /> 
+      <input formControlName="postImage" hidden #fileInput  type="file" (change)="onImageSelect($event)" accept="image/*">
+      <button type="button" (click)="triggerFileInput()" class="btn btn-lg btn-outline-light mt-2 me-2 ">📸</button>
+      <button class="btn btn-secondary btn-lg mt-2" [disabled]="postForm.invalid">نشر</button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="posts===undefined" class="d-flex justify-content-center"><div class="spinner-border my-5" role="status"></div>
+</div>
+<div *ngIf="posts!==undefined&&posts.length === 0" class="text-muted mb-3">No available posts . </div>
+<div *ngIf="posts!==undefined&&posts.length > 0" class="container-lg flex flex-wrap gap-lg-5">
+<div *ngFor="let post of posts" class="card my-3">
+  <div class="card-body">
+    <img *ngIf="post.mediaUrl" class="card-img-top mb-4" [width]="175" [height]="250" [src]=" post.mediaUrl" alt="Post Image">
+    <p class="mb-1 font-monospace fw-bolder lh-base fs-4 ">{{ post.content }}</p>
+    <small class="text-muted">{{ post.createdAt.toDate() | date:'short' }}</small>
+
+    <!-- Comments Section -->
+    <div *ngIf="post.comments&&post.comments.length > 0">
+      <div *ngFor="let c of post.comments" class="border-top pt-2">
+        <p class="mb-1"><strong>{{ (c.creator)??"Unknown User" }}</strong>: {{ c.content }}</p>
+      </div>
+    </div>
+<div class="d-flex justify-content-between align-items-center">
+<button (click)="likePost(post.postId , user.uid, user.displayName!)" class="btn btn-sm text-primary">
+  👍 {{ post.likes.length }}
+</button>
+</div>
+    <!-- Add comment -->
+
+    <div *ngIf="commentForms.get(post.postId)===undefined" class="d-flex justify-content-center"><div class="spinner-border my-5" role="status"></div>
+    </div>
+    <form *ngIf="commentForms.get(post.postId)!==undefined" (ngSubmit)="addComment(post.postId,user.uid,user.displayName!)" [formGroup]="commentForms.get(post.postId)!">
+      <input formControlName="content" class="form-control mt-2" placeholder="أضف تعليقاً..." />
+      <button type="submit" class="btn btn-primary mt-2" [disabled]="commentForms.get(post.postId)!.invalid">اضافة تعليق</button>
+    </form>
+
+  </div>
+</div>
+</div>
+</div>
 </div>

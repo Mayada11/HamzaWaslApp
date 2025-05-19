@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -46,6 +46,12 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { SocialMediaListComponent } from './components/social-media-list/social-media-list.component';
+import { SocialMediaTileComponent } from './components/social-media-tile/social-media-tile.component';
+import { StudentSocietyEnrollComponent } from './components/student-society-enroll/student-society-enroll.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,10 +75,16 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     DynaminClassComponent,
     CreateLessonComponent,
     ChartComponent,
-    ChatComponent
+    ChatComponent,
+    SocialMediaListComponent,
+    SocialMediaTileComponent,
+    StudentSocietyEnrollComponent,
   ],
   imports: [
+
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -81,6 +93,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    FormsModule,
     MatRadioModule,
     MatDatepickerModule,
     MatChipsModule,

@@ -1,0 +1,25 @@
+<div class="bg-light-subtle rounded shadow hover:shadow-lg" routerLink="/socialMedia/{{ social.socialID }}" >
+
+  <img *ngIf="social.socialBackImg" [src]="social.socialBackImg" alt="Cover" class="w-full" />
+  <div class="p-4">
+    <div class="flex items-center">
+      <img
+        *ngIf="social.socialProfileImg"
+        [src]="social.socialProfileImg"
+        alt="Avatar"
+        class="w-12 h-12 rounded-full mr-4"
+      />
+      <div>
+        <h2 class="text-lg font-semibold">{{ social.socialName || 'Untitled' }}</h2>
+        <p class="text-gray-600">{{ social.creator || 'Unknown Creator' }}</p>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <p><strong>Class:</strong> {{ social.socialclass || '-' }}</p>
+      <p><strong>Stage:</strong> {{ social.socialStage || '-' }}</p>
+      <p><strong>Subject:</strong> {{ social.socialSubject || '-' }}</p>
+    </div>
+  </div>
+</div>
+
