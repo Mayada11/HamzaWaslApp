@@ -180,6 +180,7 @@ export class SignUpComponent implements OnInit {
       .signUp(email, password)
       .pipe(
         switchMap(({ user: { uid } }) =>
+          
           this.usersService.addUser({ uid, email, displayName: name,userCategory:userCat ,NationalId:NationalId,city:city,school:school,type:type,className:className,stage:stage,article:article,packageID:packageID,packageStart:packageStart})
         ),
         this.toast.observe({

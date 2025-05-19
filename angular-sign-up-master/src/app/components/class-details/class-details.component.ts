@@ -56,6 +56,7 @@ ngOnInit(): void {
     })
   })
 }
+
 showVideo(videoUrl?:string){
   if(videoUrl!=null){
     localStorage.setItem("videoURL",videoUrl);
