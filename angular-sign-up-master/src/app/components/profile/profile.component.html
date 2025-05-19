@@ -108,7 +108,7 @@
 
           <!-- Action Buttons -->
           <div class="meeting-actions" *ngIf="user?.userCategory === '3'">
-            <button mat-icon-button color="warn" (click)="deleteMeeting(meeting.id)">
+            <button mat-icon-button color="warn" (click)="deleteMeeting(meeting.MeetingLink)">
               <mat-icon>delete</mat-icon>
             </button>
           </div>

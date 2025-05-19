@@ -95,7 +95,9 @@ ngOnChanges() {
             this.messages = messages.sort((a, b) => {
               const timeA = (a.timestamp as any)?.seconds || 0;
               const timeB = (b.timestamp as any)?.seconds || 0;
+               this.scrollToBottom();
               return timeA - timeB;
+             
             });
           });
         this.subscriptions.push(chatSub);
@@ -121,7 +123,7 @@ ngOnChanges() {
 
         this.usersService.sendMessage(newMessage).pipe(take(1)).subscribe(() => {
           this.messageForm.reset();
-    this.scrollToBottom();
+          this.scrollToBottom();
         });
       }
     });

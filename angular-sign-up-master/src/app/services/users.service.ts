@@ -15,7 +15,7 @@ import {
   query as firestoreQuery,
   serverTimestamp
 } from '@angular/fire/firestore';
-import { catchError, delay, filter, forkJoin, from, map, mergeMap, Observable, of, switchMap, throwError } from 'rxjs';
+import { catchError, delay, filter, forkJoin, from, map, mergeMap, observable, Observable, of, switchMap, throwError } from 'rxjs';
 import { ProfileUser } from '../models/user';
 import { AuthService } from './auth.service';
 import { ISocial } from '../models/isocial';
@@ -59,10 +59,19 @@ export class UsersService {
     const ref = doc(this.firestore, 'users', id);
     return from(getDoc(ref));
   }
-  deleteMeetingById(id:string): Observable<void> {
-    const ref = doc(this.firestore, 'meetings', id);
-    return from(deleteDoc(ref));
-  }
+ deleteMeetingById(link: string): Observable<void> {
+  const ref = collection(this.firestore, 'meetings');
+  const q = query(ref, where('MeetingLink', '==', link));
+
+  return from(
+    getDocs(q).then(snapshot => {
+      const deletePromises = snapshot.docs.map(docSnap =>
+        deleteDoc(doc(this.firestore, 'meetings', docSnap.id))
+      );
+      return Promise.all(deletePromises).then(() => undefined); // <<< هذا يرجّع void
+    })
+  );
+}
   addSociety(social: ISocial): Observable<DocumentData> {
   
     const ref = collection(this.firestore, 'socials');

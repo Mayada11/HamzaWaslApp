@@ -292,9 +292,9 @@ goToLink(url: string){
         this.selectedUsers = [];
       });
   }
-  deleteMeeting(id?:string){
-    if(id!=null)
-this.usersService.deleteMeetingById(id).pipe(
+  deleteMeeting(link?:string){
+    if(link!=null)
+this.usersService.deleteMeetingById(link).pipe(
        this.toast.observe({
           success: 'تم حذف الاجتماع بنجاح',
           loading: 'يتم حذف ..... ',
